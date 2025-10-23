@@ -62,8 +62,8 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#fff',
-    fontSize: moderateScale(35),
-    fontWeight: 'bold',
+    fontSize: moderateScale(34),
+    fontFamily: 'Poppins-Bold',
     textAlign: 'center',
   },
   signInContainer: {
@@ -73,10 +73,11 @@ const styles = StyleSheet.create({
   bottomText: {
     color: '#fff',
     fontSize: moderateScale(14),
+    fontFamily: 'Poppins-Medium',
   },
   signInText: {
     color: '#fff',
-    fontWeight: '600',
+    fontFamily: 'Poppins-Medium',
     textDecorationLine: 'underline',
   },
 });

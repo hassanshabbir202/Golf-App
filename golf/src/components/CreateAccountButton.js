@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   },
   createButton: {
     backgroundColor: '#a3a3809c',
-    paddingVertical: moderateScale(20),
+    paddingVertical: moderateScale(18),
     borderRadius: moderateScale(12),
     width: '100%',
     alignItems: 'center',
@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
   },
   createText: {
     color: '#fff',
-    fontSize: moderateScale(16),
-    fontWeight: '500',
+    fontSize: moderateScale(15),
+    fontFamily: 'Poppins-Medium',
   },
 });
 
