@@ -1,0 +1,45 @@
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { moderateScale } from 'react-native-size-matters';
+
+const SignInWithGoogleButton = () => {
+  return (
+    <View style={styles.buttonContainer}>
+      <TouchableOpacity style={styles.googleButton}>
+        <Image
+          source={require('../assets/google-icon.png')}
+          style={styles.googleIcon}
+        />
+        <Text style={styles.googleText}>Sign Up with Google</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  buttonContainer: {
+    width: '100%',
+    alignItems: 'center',
+  },
+  googleButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    paddingVertical: moderateScale(20),
+    borderRadius: moderateScale(12),
+    width: '100%',
+    justifyContent: 'center',
+    marginBottom: moderateScale(12),
+  },
+  googleIcon: {
+    width: moderateScale(22),
+    height: moderateScale(22),
+    marginRight: moderateScale(8),
+  },
+  googleText: {
+    color: '#333',
+    fontSize: moderateScale(16),
+    fontWeight: '500',
+  },
+});
+
+export default SignInWithGoogleButton;
