@@ -1,10 +1,13 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
 
-const CreateAccountButton = () => {
+const CreateAccountButton = ({ navigation }) => {
   return (
     <View style={styles.buttonContainer}>
-      <TouchableOpacity style={styles.createButton}>
+      <TouchableOpacity
+        style={styles.createButton}
+        onPress={() => navigation.navigate('SignUpScreen')}
+      >
         <Text style={styles.createText}>Create account</Text>
       </TouchableOpacity>
     </View>

@@ -4,7 +4,7 @@ import { moderateScale } from 'react-native-size-matters';
 import SignInWithGoogleButton from './../components/SignInWithGoogleButton';
 import CreateAccountButton from './../components/CreateAccountButton';
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation }) => {
   return (
     <ImageBackground
       source={require('../assets/golf-bg.jpg')}
@@ -26,8 +26,8 @@ const WelcomeScreen = () => {
       </View>
 
       <View style={styles.signInContainer}>
-        <SignInWithGoogleButton />
-        <CreateAccountButton />
+        <SignInWithGoogleButton navigation={navigation} />
+        <CreateAccountButton navigation={navigation} />
 
         <Text style={styles.bottomText}>
           Already a member? <Text style={styles.signInText}>Sign in</Text>
