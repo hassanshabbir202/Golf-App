@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-Regular',
   },
   button: {
-    backgroundColor: '#0f0f0991',
+    backgroundColor: '#060604a8',
     paddingVertical: moderateScale(14),
     borderRadius: moderateScale(10),
     alignItems: 'center',

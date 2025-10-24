@@ -30,7 +30,8 @@ const WelcomeScreen = ({ navigation }) => {
         <CreateAccountButton navigation={navigation} />
 
         <Text style={styles.bottomText}>
-          Already a member? <Text style={styles.signInText}>Sign in</Text>
+          Want to explore first?
+          <Text style={styles.signInText}>Continue as Guest</Text>
         </Text>
       </View>
     </ImageBackground>

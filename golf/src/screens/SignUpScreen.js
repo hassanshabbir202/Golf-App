@@ -1,11 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
 import SignUpForm from './../components/SignUpForm';
+import Header from '../components/Header';
 
-const SignUpScreen = () => {
+const SignUpScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome to the Golf!</Text>
+      <Header title="Create Account" navigation={navigation} />
+      <Text style={styles.title}>Welcome to the FairwayOne</Text>
       <Text style={styles.subTitle}>Let's start by creating an account!</Text>
       <SignUpForm />
     </View>
@@ -20,13 +22,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: moderateScale(25),
   },
   title: {
-    fontSize: moderateScale(26),
-    color: '#333',
+    fontSize: moderateScale(20),
+    color: '#060604a8',
     fontFamily: 'Poppins-SemiBold',
+    marginTop:moderateScale(15)
   },
   subTitle: {
-    marginBottom: moderateScale(40),
+    marginBottom: moderateScale(20),
     fontFamily: 'Poppins-MediumItalic',
+    fontSize: moderateScale(12),
   },
 });
 
