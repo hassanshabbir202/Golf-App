@@ -1,5 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
+import colors from '../constants/colors';
 
 const CreateAccountButton = ({ navigation }) => {
   return (
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   createButton: {
-    backgroundColor: '#a3a3809c',
+    backgroundColor: colors.createAccountBtn,
     paddingVertical: moderateScale(18),
     borderRadius: moderateScale(12),
     width: '100%',
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
     marginBottom: moderateScale(20),
   },
   createText: {
-    color: '#fff',
+    color: colors.white,
     fontSize: moderateScale(15),
     fontFamily: 'Poppins-Medium',
   },

@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
 import Icon from 'react-native-vector-icons/Ionicons';
+import colors from '../constants/colors';
 
 const Header = ({ title, navigation }) => {
   return (
@@ -11,7 +12,11 @@ const Header = ({ title, navigation }) => {
           onPress={() => navigation.goBack()}
           style={styles.backButton}
         >
-          <Icon name="arrow-back" size={moderateScale(22)} color="#000" />
+          <Icon
+            name="arrow-back"
+            size={moderateScale(22)}
+            color={colors.primary}
+          />
         </TouchableOpacity>
 
         <Text style={styles.headerText}>{title}</Text>

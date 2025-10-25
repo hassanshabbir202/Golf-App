@@ -3,6 +3,7 @@ import { View, Text, Image, ImageBackground, StyleSheet } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
 import SignInWithGoogleButton from './../components/SignInWithGoogleButton';
 import CreateAccountButton from './../components/CreateAccountButton';
+import colors from '../constants/colors';
 
 const WelcomeScreen = ({ navigation }) => {
   return (
@@ -31,7 +32,7 @@ const WelcomeScreen = ({ navigation }) => {
 
         <Text style={styles.bottomText}>
           Want to explore first?
-          <Text style={styles.signInText}>Continue as Guest</Text>
+          <Text style={styles.signInText}> Continue as Guest</Text>
         </Text>
       </View>
     </ImageBackground>
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
 
   overlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(0, 0, 0, 0.83)',
+    backgroundColor: colors.rgbColor,
   },
   logoContainer: {
     marginTop: moderateScale(40),
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    color: '#fff',
+    color: colors.white,
     fontSize: moderateScale(34),
     fontFamily: 'Poppins-Bold',
     textAlign: 'center',
@@ -72,12 +73,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   bottomText: {
-    color: '#fff',
-    fontSize: moderateScale(14),
+    color: colors.white,
+    fontSize: moderateScale(13),
     fontFamily: 'Poppins-Medium',
   },
   signInText: {
-    color: '#fff',
+    color: colors.white,
     fontFamily: 'Poppins-Medium',
     textDecorationLine: 'underline',
   },

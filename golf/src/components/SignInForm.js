@@ -5,40 +5,23 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  Pressable,
 } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
 import colors from '../constants/colors';
 
-const SignUpForm = ({ navigation }) => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+const SignInForm = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [inviteCode, setInviteCode] = useState('');
+  const [rememberMe, setRememberMe] = useState(false);
 
-  const handleSignUp = () => {
-    console.log({ firstName, lastName, email, password, inviteCode });
+  const handleSignIn = () => {
+    console.log({ email, password, rememberMe });
   };
 
   return (
     <View>
       <View>
-        <TextInput
-          style={styles.input}
-          placeholder="First Name"
-          placeholderTextColor={colors.placeHolderColor}
-          value={firstName}
-          onChangeText={setFirstName}
-        />
-
-        <TextInput
-          style={styles.input}
-          placeholder="Last Name"
-          placeholderTextColor={colors.placeHolderColor}
-          value={lastName}
-          onChangeText={setLastName}
-        />
-
         <TextInput
           style={styles.input}
           placeholder="Email"
@@ -57,26 +40,34 @@ const SignUpForm = ({ navigation }) => {
           onChangeText={setPassword}
         />
 
-        <TextInput
-          style={styles.input}
-          placeholder="Invite Code"
-          placeholderTextColor={colors.placeHolderColor}
-          value={inviteCode}
-          onChangeText={setInviteCode}
-        />
+        <View style={styles.optionsRow}>
+          <Pressable
+            style={styles.rememberContainer}
+            onPress={() => setRememberMe(!rememberMe)}
+          >
+            <View style={[styles.checkbox, rememberMe && styles.checkedBox]} />
+            <Text style={styles.rememberText}>Remember Me</Text>
+          </Pressable>
 
-        <TouchableOpacity style={styles.button} onPress={handleSignUp}>
-          <Text style={styles.buttonText}>Sign Up</Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('ResetPasswordScreen')}
+          >
+            <Text style={styles.forgotText}>Forgot Password?</Text>
+          </TouchableOpacity>
+        </View>
+
+        <TouchableOpacity style={styles.button} onPress={handleSignIn}>
+          <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
       </View>
 
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate('SignInScreen');
+          navigation.navigate('SignUpScreen');
         }}
       >
         <Text style={styles.footerText}>
-          Already have an account? <Text style={styles.link}>Login</Text>
+          Don't have an account? <Text style={styles.link}>Sign Up</Text>
         </Text>
       </TouchableOpacity>
     </View>
@@ -95,6 +86,40 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.border,
     fontFamily: 'Poppins-Regular',
+  },
+  optionsRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: moderateScale(15),
+  },
+  rememberContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  checkbox: {
+    width: moderateScale(18),
+    height: moderateScale(18),
+    borderWidth: 1,
+    borderColor: colors.placeHolderColor,
+    borderRadius: moderateScale(4),
+    marginRight: moderateScale(8),
+  },
+  checkedBox: {
+    backgroundColor: colors.primary,
+    borderColor: colors.primary,
+  },
+  rememberText: {
+    color: colors.text,
+    fontSize: moderateScale(13),
+    fontFamily: 'Poppins-Regular',
+    marginTop: moderateScale(4),
+  },
+  forgotText: {
+    color: colors.subText,
+    fontSize: moderateScale(13),
+    fontFamily: 'Poppins-Medium',
+    marginTop: moderateScale(4),
   },
   button: {
     backgroundColor: colors.primary,
@@ -121,4 +146,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SignUpForm;
+export default SignInForm;

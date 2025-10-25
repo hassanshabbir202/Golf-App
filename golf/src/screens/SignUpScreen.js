@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
 import SignUpForm from './../components/SignUpForm';
 import Header from '../components/Header';
+import colors from '../constants/colors';
 
 const SignUpScreen = ({ navigation }) => {
   return (
@@ -9,7 +10,7 @@ const SignUpScreen = ({ navigation }) => {
       <Header title="Create Account" navigation={navigation} />
       <Text style={styles.title}>Welcome to the FairwayOne</Text>
       <Text style={styles.subTitle}>Let's start by creating an account!</Text>
-      <SignUpForm />
+      <SignUpForm navigation={navigation} />
     </View>
   );
 };
@@ -17,20 +18,22 @@ const SignUpScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F2F2F2',
+    backgroundColor: colors.background,
     justifyContent: 'center',
     paddingHorizontal: moderateScale(25),
   },
   title: {
     fontSize: moderateScale(20),
-    color: '#060604a8',
-    fontFamily: 'Poppins-SemiBold',
-    marginTop:moderateScale(15)
+    color: colors.primary,
+    fontFamily: 'Poppins-Bold',
+    marginTop: moderateScale(15),
+    textAlign: 'center',
   },
   subTitle: {
     marginBottom: moderateScale(20),
-    fontFamily: 'Poppins-MediumItalic',
+    fontFamily: 'Poppins-Medium',
     fontSize: moderateScale(12),
+    textAlign: 'center',
   },
 });
 
