@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     fontFamily: fonts.poppinsMedium,
     fontSize: moderateScale(14),
     textAlign: 'center',
+    marginTop: moderateScale(-5),
   },
 });
 

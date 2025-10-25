@@ -9,6 +9,7 @@ import {
 import { moderateScale } from 'react-native-size-matters';
 import colors from '../constants/colors';
 import fonts from '../constants/fonts';
+import AuthFooter from './AuthFooter';
 
 const SignUpForm = ({ navigation }) => {
   const [firstName, setFirstName] = useState('');
@@ -69,17 +70,13 @@ const SignUpForm = ({ navigation }) => {
         <TouchableOpacity style={styles.button} onPress={handleSignUp}>
           <Text style={styles.buttonText}>Sign Up</Text>
         </TouchableOpacity>
-      </View>
 
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate('SignInScreen');
-        }}
-      >
-        <Text style={styles.footerText}>
-          Already have an account? <Text style={styles.link}>Login</Text>
-        </Text>
-      </TouchableOpacity>
+        <AuthFooter
+          text="Already have an account?"
+          linkText="Login"
+          onPress={() => navigation.navigate('SignInScreen')}
+        />
+      </View>
     </View>
   );
 };
@@ -107,18 +104,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: colors.background,
     fontSize: moderateScale(16),
-    fontFamily: fonts.poppinsBold,
-  },
-  footerText: {
-    color: colors.subText,
-    textAlign: 'center',
-    marginTop: moderateScale(25),
-    fontSize: moderateScale(13),
-    fontFamily: fonts.poppinsRegular,
-  },
-  link: {
-    color: colors.secondary,
-    fontFamily: fonts.poppinsMedium,
+    fontFamily: fonts.poppinsSemiBold,
   },
 });
 

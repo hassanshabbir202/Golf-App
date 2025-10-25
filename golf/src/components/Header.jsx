@@ -44,8 +44,8 @@ const styles = StyleSheet.create({
     paddingLeft: moderateScale(15),
   },
   headerText: {
-    fontSize: moderateScale(20),
-    fontFamily: fonts.poppinsBold,
+    fontSize: moderateScale(18),
+    fontFamily: fonts.poppinsSemiBold,
     textAlign: 'center',
     flex: 1,
   },

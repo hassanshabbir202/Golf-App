@@ -10,6 +10,7 @@ import {
 import { moderateScale } from 'react-native-size-matters';
 import colors from '../constants/colors';
 import fonts from '../constants/fonts';
+import AuthFooter from './AuthFooter';
 
 const SignInForm = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -60,17 +61,13 @@ const SignInForm = ({ navigation }) => {
         <TouchableOpacity style={styles.button} onPress={handleSignIn}>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
-      </View>
 
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate('SignUpScreen');
-        }}
-      >
-        <Text style={styles.footerText}>
-          Don't have an account? <Text style={styles.link}>Sign Up</Text>
-        </Text>
-      </TouchableOpacity>
+        <AuthFooter
+          text="Don’t have an account?"
+          linkText="SignUp"
+          onPress={() => navigation.navigate('SignUpScreen')}
+        />
+      </View>
     </View>
   );
 };
@@ -127,23 +124,12 @@ const styles = StyleSheet.create({
     paddingVertical: moderateScale(14),
     borderRadius: moderateScale(10),
     alignItems: 'center',
-    marginTop: moderateScale(10),
+    marginTop: moderateScale(2),
   },
   buttonText: {
     color: colors.background,
     fontSize: moderateScale(16),
-    fontFamily: fonts.poppinsBold,
-  },
-  footerText: {
-    color: colors.subText,
-    textAlign: 'center',
-    marginTop: moderateScale(25),
-    fontSize: moderateScale(13),
-    fontFamily: fonts.poppinsRegular,
-  },
-  link: {
-    color: colors.secondary,
-    fontFamily: fonts.poppinsMedium,
+    fontFamily: fonts.poppinsSemiBold,
   },
 });
 

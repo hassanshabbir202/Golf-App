@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, Image, ImageBackground, StyleSheet } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
-import SignInWithGoogleButton from './../components/SignInWithGoogleButton';
-import CreateAccountButton from './../components/CreateAccountButton';
+import SignInWithGoogleButton from '../components/SignInWithGoogleButton';
 import colors from '../constants/colors';
 import fonts from '../constants/fonts';
+import CreateAccountButton from './../components/CreateAccountButton';
 
 const WelcomeScreen = ({ navigation }) => {
   return (
@@ -29,7 +29,7 @@ const WelcomeScreen = ({ navigation }) => {
 
       <View style={styles.signInContainer}>
         <SignInWithGoogleButton navigation={navigation} />
-        <CreateAccountButton navigation={navigation} />
+       <CreateAccountButton navigation={navigation}/>
 
         <Text style={styles.bottomText}>
           Want to explore first?

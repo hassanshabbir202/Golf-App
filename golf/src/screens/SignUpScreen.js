@@ -28,13 +28,11 @@ const styles = StyleSheet.create({
     color: colors.primary,
     fontFamily: fonts.poppinsBold,
     marginTop: moderateScale(15),
-    textAlign: 'center',
   },
   subTitle: {
     marginBottom: moderateScale(20),
     fontFamily: fonts.poppinsMedium,
     fontSize: moderateScale(12),
-    textAlign: 'center',
   },
 });
 
