@@ -1,6 +1,7 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
 import colors from '../constants/colors';
+import fonts from '../constants/fonts';
 
 const SignInWithGoogleButton = () => {
   return (
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
   googleButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.background,
     paddingVertical: moderateScale(18),
     borderRadius: moderateScale(12),
     width: '100%',
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
   googleText: {
     color: colors.text,
     fontSize: moderateScale(15),
-    fontFamily: 'Poppins-Medium',
+    fontFamily: fonts.poppinsMedium,
   },
 });
 

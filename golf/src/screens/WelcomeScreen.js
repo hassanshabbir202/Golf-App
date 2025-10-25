@@ -4,6 +4,7 @@ import { moderateScale } from 'react-native-size-matters';
 import SignInWithGoogleButton from './../components/SignInWithGoogleButton';
 import CreateAccountButton from './../components/CreateAccountButton';
 import colors from '../constants/colors';
+import fonts from '../constants/fonts';
 
 const WelcomeScreen = ({ navigation }) => {
   return (
@@ -63,9 +64,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    color: colors.white,
+    color: colors.background,
     fontSize: moderateScale(34),
-    fontFamily: 'Poppins-Bold',
+    fontFamily: fonts.poppinsBold,
     textAlign: 'center',
   },
   signInContainer: {
@@ -73,13 +74,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   bottomText: {
-    color: colors.white,
+    color: colors.background,
     fontSize: moderateScale(13),
-    fontFamily: 'Poppins-Medium',
+    fontFamily: fonts.poppinsMedium,
   },
   signInText: {
-    color: colors.white,
-    fontFamily: 'Poppins-Medium',
+    color: colors.background,
+    fontFamily: fonts.poppinsMedium,
     textDecorationLine: 'underline',
   },
 });

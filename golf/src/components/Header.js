@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '../constants/colors';
+import fonts from '../constants/fonts';
 
 const Header = ({ title, navigation }) => {
   return (
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: moderateScale(20),
-    fontFamily: 'Poppins-Bold',
+    fontFamily: fonts.poppinsBold,
     textAlign: 'center',
     flex: 1,
   },

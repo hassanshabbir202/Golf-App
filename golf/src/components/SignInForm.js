@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
 import colors from '../constants/colors';
+import fonts from '../constants/fonts';
 
 const SignInForm = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -85,7 +86,7 @@ const styles = StyleSheet.create({
     marginBottom: moderateScale(15),
     borderWidth: 1,
     borderColor: colors.border,
-    fontFamily: 'Poppins-Regular',
+    fontFamily: fonts.poppinsRegular,
   },
   optionsRow: {
     flexDirection: 'row',
@@ -112,13 +113,13 @@ const styles = StyleSheet.create({
   rememberText: {
     color: colors.text,
     fontSize: moderateScale(13),
-    fontFamily: 'Poppins-Regular',
+    fontFamily: fonts.poppinsRegular,
     marginTop: moderateScale(4),
   },
   forgotText: {
     color: colors.subText,
     fontSize: moderateScale(13),
-    fontFamily: 'Poppins-Medium',
+    fontFamily: fonts.poppinsMedium,
     marginTop: moderateScale(4),
   },
   button: {
@@ -129,20 +130,20 @@ const styles = StyleSheet.create({
     marginTop: moderateScale(10),
   },
   buttonText: {
-    color: colors.white,
+    color: colors.background,
     fontSize: moderateScale(16),
-    fontFamily: 'Poppins-Bold',
+    fontFamily: fonts.poppinsBold,
   },
   footerText: {
     color: colors.subText,
     textAlign: 'center',
     marginTop: moderateScale(25),
     fontSize: moderateScale(13),
-    fontFamily: 'Poppins-Regular',
+    fontFamily: fonts.poppinsRegular,
   },
   link: {
     color: colors.secondary,
-    fontFamily: 'Poppins-Medium',
+    fontFamily: fonts.poppinsMedium,
   },
 });
 

@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
 import colors from '../constants/colors';
+import fonts from '../constants/fonts';
 
 const SignUpForm = ({ navigation }) => {
   const [firstName, setFirstName] = useState('');
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
     marginBottom: moderateScale(15),
     borderWidth: 1,
     borderColor: colors.border,
-    fontFamily: 'Poppins-Regular',
+    fontFamily: fonts.poppinsRegular,
   },
   button: {
     backgroundColor: colors.primary,
@@ -104,20 +105,20 @@ const styles = StyleSheet.create({
     marginTop: moderateScale(10),
   },
   buttonText: {
-    color: colors.white,
+    color: colors.background,
     fontSize: moderateScale(16),
-    fontFamily: 'Poppins-Bold',
+    fontFamily: fonts.poppinsBold,
   },
   footerText: {
     color: colors.subText,
     textAlign: 'center',
     marginTop: moderateScale(25),
     fontSize: moderateScale(13),
-    fontFamily: 'Poppins-Regular',
+    fontFamily: fonts.poppinsRegular,
   },
   link: {
     color: colors.secondary,
-    fontFamily: 'Poppins-Medium',
+    fontFamily: fonts.poppinsMedium,
   },
 });
 

@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
 import colors from '../constants/colors';
+import fonts from '../constants/fonts';
 
 const ResetPasswordForm = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -54,13 +55,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: moderateScale(28),
     color: colors.primary,
-    fontFamily: 'Poppins-SemiBold',
+    fontFamily: fonts.poppinsSemiBold,
     marginBottom: moderateScale(10),
     textAlign: 'center',
   },
   subTitle: {
     fontSize: moderateScale(13),
-    fontFamily: 'Poppins-Regular',
+    fontFamily: fonts.poppinsRegular,
     color: colors.subText,
     textAlign: 'center',
     marginBottom: moderateScale(25),
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
     marginBottom: moderateScale(15),
     borderWidth: 1,
     borderColor: colors.border,
-    fontFamily: 'Poppins-Regular',
+    fontFamily: fonts.poppinsRegular,
   },
   button: {
     backgroundColor: colors.primary,
@@ -85,16 +86,16 @@ const styles = StyleSheet.create({
     marginTop: moderateScale(5),
   },
   buttonText: {
-    color: colors.white,
+    color: colors.background,
     fontSize: moderateScale(15),
-    fontFamily: 'Poppins-Bold',
+    fontFamily: fonts.poppinsBold,
   },
   backText: {
     color: colors.secondary,
     textAlign: 'center',
     marginTop: moderateScale(20),
     fontSize: moderateScale(13),
-    fontFamily: 'Poppins-Medium',
+    fontFamily: fonts.poppinsMedium,
   },
 });
 

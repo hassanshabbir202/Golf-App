@@ -3,6 +3,7 @@ import { moderateScale } from 'react-native-size-matters';
 import Header from '../components/Header';
 import SignInForm from './../components/SignInForm';
 import colors from '../constants/colors';
+import fonts from '../constants/fonts';
 
 const SignInScreen = ({ navigation }) => {
   return (
@@ -24,13 +25,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: moderateScale(30),
     color: colors.primary,
-    fontFamily: 'Poppins-Bold',
+    fontFamily: fonts.poppinsBold,
     marginTop: moderateScale(15),
     textAlign: 'center',
   },
   subTitle: {
     marginBottom: moderateScale(15),
-    fontFamily: 'Poppins-Medium',
+    fontFamily: fonts.poppinsMedium,
     fontSize: moderateScale(14),
     textAlign: 'center',
   },
