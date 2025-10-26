@@ -30,18 +30,13 @@ const Header = ({ title, navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    position: 'absolute',
-    top: '6%',
     width: '100%',
   },
   headerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: moderateScale(10),
-  },
-  backButton: {
-    paddingLeft: moderateScale(15),
+    marginTop: moderateScale(40),
   },
   headerText: {
     fontSize: moderateScale(18),

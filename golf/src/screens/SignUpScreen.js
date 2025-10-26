@@ -27,12 +27,12 @@ const styles = StyleSheet.create({
     fontSize: moderateScale(20),
     color: colors.primary,
     fontFamily: fonts.poppinsSemiBoldItalic,
-    marginTop: moderateScale(15),
+    marginTop: moderateScale(35),
   },
   subTitle: {
     marginBottom: moderateScale(20),
     fontFamily: fonts.poppinsMediumItalic,
-    fontSize: moderateScale(12)
+    fontSize: moderateScale(12),
   },
 });
 

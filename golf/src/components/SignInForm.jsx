@@ -7,6 +7,7 @@ import {
   View,
 } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import CheckBox from '@react-native-community/checkbox';
 import colors from '../constants/colors';
 import fonts from '../constants/fonts';
@@ -22,7 +23,7 @@ const SignInForm = ({ navigation }) => {
   };
 
   return (
-    <View>
+    <KeyboardAwareScrollView enableOnAndroid={true} extraScrollHeight={30}>
       <View>
         <TextInput
           style={styles.input}
@@ -71,7 +72,7 @@ const SignInForm = ({ navigation }) => {
           onPress={() => navigation.navigate('SignUpScreen')}
         />
       </View>
-    </View>
+    </KeyboardAwareScrollView>
   );
 };
 
@@ -99,7 +100,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignContent: 'center',
   },
-
   rememberText: {
     color: colors.text,
     fontSize: moderateScale(13),

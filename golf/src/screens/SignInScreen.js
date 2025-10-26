@@ -9,24 +9,35 @@ const SignInScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Header title="Login" navigation={navigation} />
-      <Text style={styles.title}>Welcome Back</Text>
-      <Text style={styles.subTitle}>Please sign in to continue</Text>
-      <SignInForm navigation={navigation} />
+      <View style={styles.contentWrapper}>
+        <View style={styles.content}>
+          <Text style={styles.title}>Welcome Back</Text>
+          <Text style={styles.subTitle}>Please sign in to continue</Text>
+          <SignInForm navigation={navigation} />
+        </View>
+      </View>
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background,
-    justifyContent: 'center',
     paddingHorizontal: moderateScale(25),
+  },
+  contentWrapper: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  content: {
+    width: '100%',
   },
   title: {
     fontSize: moderateScale(30),
     color: colors.primary,
     fontFamily: fonts.poppinsSemiBoldItalic,
-    marginTop: moderateScale(15),
     textAlign: 'center',
   },
   subTitle: {

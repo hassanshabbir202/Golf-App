@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   imgStyle: {
     height: moderateScale(95),
     width: moderateScale(100),
-    marginTop: '40%',
+    marginTop: moderateScale(35),
   },
   title: {
     fontSize: moderateScale(26),

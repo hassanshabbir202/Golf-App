@@ -46,10 +46,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: moderateScale(5),
     paddingTop: moderateScale(30),
   },
-  label:{
-    fontFamily:fonts.poppinsMedium,
-    marginTop:moderateScale(-10),
-    marginBottom:moderateScale(2)
+  label: {
+    fontFamily: fonts.poppinsMedium,
+    marginTop: moderateScale(-10),
+    marginBottom: moderateScale(2),
   },
   input: {
     backgroundColor: colors.inputBackground,

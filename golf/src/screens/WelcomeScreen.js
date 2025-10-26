@@ -1,5 +1,13 @@
 import React from 'react';
-import { View, Text, Image, ImageBackground, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  ImageBackground,
+  StyleSheet,
+  TouchableOpacity,
+  Alert,
+} from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
 import SignInWithGoogleButton from '../components/SignInWithGoogleButton';
 import colors from '../constants/colors';
@@ -7,6 +15,10 @@ import fonts from '../constants/fonts';
 import CreateAccountButton from './../components/CreateAccountButton';
 
 const WelcomeScreen = ({ navigation }) => {
+  const continueAsGuest = () => {
+    navigation.navigate('DashboardScreen');
+  };
+
   return (
     <ImageBackground
       source={require('../assets/golf-bg.jpg')}
@@ -29,12 +41,15 @@ const WelcomeScreen = ({ navigation }) => {
 
       <View style={styles.signInContainer}>
         <SignInWithGoogleButton navigation={navigation} />
-       <CreateAccountButton navigation={navigation}/>
+        <CreateAccountButton navigation={navigation} />
 
-        <Text style={styles.bottomText}>
-          Want to explore first?
-          <Text style={styles.signInText}> Continue as Guest</Text>
-        </Text>
+        <View style={styles.continueAsGuestContainer}>
+          <Text style={styles.bottomText}> Want to explore first? </Text>
+
+          <TouchableOpacity onPress={continueAsGuest}>
+            <Text style={styles.signInText}>Continue as Guest</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </ImageBackground>
   );
@@ -71,6 +86,10 @@ const styles = StyleSheet.create({
   },
   signInContainer: {
     width: '85%',
+    alignItems: 'center',
+  },
+  continueAsGuestContainer: {
+    flexDirection: 'row',
     alignItems: 'center',
   },
   bottomText: {

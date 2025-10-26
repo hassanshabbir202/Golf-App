@@ -7,6 +7,8 @@ import {
   View,
 } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import CheckBox from '@react-native-community/checkbox';
 import colors from '../constants/colors';
 import fonts from '../constants/fonts';
 import AuthFooter from './AuthFooter';
@@ -17,13 +19,14 @@ const SignUpForm = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [inviteCode, setInviteCode] = useState('');
+  const [agree, setAgree] = useState(false);
 
   const handleSignUp = () => {
     console.log({ firstName, lastName, email, password, inviteCode });
   };
 
   return (
-    <View>
+    <KeyboardAwareScrollView enableOnAndroid={true} extraScrollHeight={30}>
       <View>
         <TextInput
           style={styles.input}
@@ -67,6 +70,17 @@ const SignUpForm = ({ navigation }) => {
           onChangeText={setInviteCode}
         />
 
+        <View style={styles.wrapper}>
+          <CheckBox
+            value={agree}
+            onValueChange={() => setAgree(!agree)}
+            tintColors={{ true: colors.primary, false: colors.border }}
+          />
+          <Text style={styles.termsAndCondtion}>
+            I agree to the Terms & Conditions
+          </Text>
+        </View>
+
         <TouchableOpacity style={styles.button} onPress={handleSignUp}>
           <Text style={styles.buttonText}>Sign Up</Text>
         </TouchableOpacity>
@@ -77,7 +91,7 @@ const SignUpForm = ({ navigation }) => {
           onPress={() => navigation.navigate('SignInScreen')}
         />
       </View>
-    </View>
+    </KeyboardAwareScrollView>
   );
 };
 
@@ -93,6 +107,17 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.border,
     fontFamily: fonts.poppinsRegular,
+  },
+  wrapper: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignContent: 'center',
+  },
+  termsAndCondtion: {
+    color: colors.text,
+    fontSize: moderateScale(13),
+    fontFamily: fonts.poppinsRegular,
+    marginTop: moderateScale(6),
   },
   button: {
     backgroundColor: colors.primary,

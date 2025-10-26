@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     fontFamily: fonts.poppinsSemiBold,
     marginBottom: moderateScale(12),
     textAlign: 'center',
-    marginTop: '40%',
+    marginTop: moderateScale(35),
   },
   subTitle: {
     marginBottom: moderateScale(15),

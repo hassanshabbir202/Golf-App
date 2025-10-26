@@ -10,6 +10,7 @@ import SignUpScreen from './src/screens/SignUpScreen';
 import SignInScreen from './src/screens/SignInScreen';
 import ResetPasswordScreen from './src/screens/ResetPasswordScreen';
 import EmailVerificationScreen from './src/screens/EmailVerificationScreen';
+import DashboardScreen from './src/screens/DashboardScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,8 +28,15 @@ function App() {
           <Stack.Screen name="Welcome" component={WelcomeScreen} />
           <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
           <Stack.Screen name="SignInScreen" component={SignInScreen} />
-          <Stack.Screen name="ResetPasswordScreen" component={ResetPasswordScreen} />
-          <Stack.Screen name="EmailVerificationScreen" component={EmailVerificationScreen} />
+          <Stack.Screen
+            name="ResetPasswordScreen"
+            component={ResetPasswordScreen}
+          />
+          <Stack.Screen
+            name="EmailVerificationScreen"
+            component={EmailVerificationScreen}
+          />
+          <Stack.Screen name="DashboardScreen" component={DashboardScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
