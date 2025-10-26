@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: moderateScale(25),
   },
   title: {
-    fontSize: moderateScale(23),
+    fontSize: moderateScale(24),
     color: colors.primary,
     fontFamily: fonts.poppinsSemiBold,
     marginBottom: moderateScale(12),

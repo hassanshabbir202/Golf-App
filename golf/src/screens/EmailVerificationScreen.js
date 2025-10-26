@@ -38,12 +38,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   imgStyle: {
-    height: moderateScale(90),
+    height: moderateScale(95),
     width: moderateScale(100),
     marginTop: '40%',
   },
   title: {
-    fontSize: moderateScale(28),
+    fontSize: moderateScale(26),
     color: colors.primary,
     fontFamily: fonts.poppinsSemiBold,
     marginBottom: moderateScale(12),

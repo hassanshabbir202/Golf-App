@@ -2,8 +2,7 @@ import {
   View,
   Text,
   TouchableOpacity,
-  StyleSheet,
-  Linking,
+  StyleSheet
 } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
 import colors from '../constants/colors';

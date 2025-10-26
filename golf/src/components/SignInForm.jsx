@@ -5,9 +5,9 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  Pressable,
 } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
+import CheckBox from '@react-native-community/checkbox';
 import colors from '../constants/colors';
 import fonts from '../constants/fonts';
 import AuthFooter from './AuthFooter';
@@ -15,10 +15,10 @@ import AuthFooter from './AuthFooter';
 const SignInForm = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [rememberMe, setRememberMe] = useState(false);
+  const [agree, setAgree] = useState(false);
 
   const handleSignIn = () => {
-    console.log({ email, password, rememberMe });
+    console.log({ email, password });
   };
 
   return (
@@ -43,19 +43,22 @@ const SignInForm = ({ navigation }) => {
         />
 
         <View style={styles.optionsRow}>
-          <Pressable
-            style={styles.rememberContainer}
-            onPress={() => setRememberMe(!rememberMe)}
-          >
-            <View style={[styles.checkbox, rememberMe && styles.checkedBox]} />
+          <View style={styles.wrapper}>
+            <CheckBox
+              value={agree}
+              onValueChange={() => setAgree(!agree)}
+              tintColors={{ true: colors.primary, false: colors.border }}
+            />
             <Text style={styles.rememberText}>Remember Me</Text>
-          </Pressable>
+          </View>
 
-          <TouchableOpacity
-            onPress={() => navigation.navigate('ResetPasswordScreen')}
-          >
-            <Text style={styles.forgotText}>Forgot Password?</Text>
-          </TouchableOpacity>
+          <View>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('ResetPasswordScreen')}
+            >
+              <Text style={styles.forgotText}>Forgot Password?</Text>
+            </TouchableOpacity>
+          </View>
         </View>
 
         <TouchableOpacity style={styles.button} onPress={handleSignIn}>
@@ -89,29 +92,19 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: moderateScale(15),
+    marginBottom: moderateScale(10),
   },
-  rememberContainer: {
+  wrapper: {
+    display: 'flex',
     flexDirection: 'row',
-    alignItems: 'center',
+    alignContent: 'center',
   },
-  checkbox: {
-    width: moderateScale(18),
-    height: moderateScale(18),
-    borderWidth: 1,
-    borderColor: colors.placeHolderColor,
-    borderRadius: moderateScale(4),
-    marginRight: moderateScale(8),
-  },
-  checkedBox: {
-    backgroundColor: colors.primary,
-    borderColor: colors.primary,
-  },
+
   rememberText: {
     color: colors.text,
     fontSize: moderateScale(13),
     fontFamily: fonts.poppinsRegular,
-    marginTop: moderateScale(4),
+    marginTop: moderateScale(6),
   },
   forgotText: {
     color: colors.subText,
