@@ -13,14 +13,10 @@ import fonts from '../constants/fonts';
 const ResetPasswordForm = ({ navigation }) => {
   const [email, setEmail] = useState('');
 
-  const handleResetPassword = () => {
-    console.log('Reset link sent to:', email);
-  };
-
   return (
     <View style={styles.container}>
       <View>
-        <Text style={styles.label}>Enter email Adress:</Text>
+        <Text style={styles.label}>Enter email :</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter your email"
@@ -32,7 +28,10 @@ const ResetPasswordForm = ({ navigation }) => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={handleResetPassword}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('EmailVerificationScreen')}
+        >
           <Text style={styles.buttonText}>Send Reset Link</Text>
         </TouchableOpacity>
       </View>
@@ -47,10 +46,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: moderateScale(5),
     paddingTop: moderateScale(30),
   },
-  label: {
-    fontFamily: fonts.poppinsMedium,
-    marginBottom: moderateScale(5),
-    marginTop: moderateScale(-10),
+  label:{
+    fontFamily:fonts.poppinsMedium,
+    marginTop:moderateScale(-10),
+    marginBottom:moderateScale(2)
   },
   input: {
     backgroundColor: colors.inputBackground,
@@ -76,7 +75,7 @@ const styles = StyleSheet.create({
     borderRadius: moderateScale(10),
     marginVertical: moderateScale(30),
     alignItems: 'center',
-    width: '95%',
+    width: '100%',
   },
   buttonText: {
     color: colors.background,

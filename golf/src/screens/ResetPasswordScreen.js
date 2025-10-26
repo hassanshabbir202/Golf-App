@@ -13,7 +13,7 @@ const ResetPasswordScreen = ({ navigation }) => {
       <Text style={styles.subTitle}>
         Enter your email and we’ll send instructions to reset your password.
       </Text>
-      <ResetPasswordForm />
+      <ResetPasswordForm navigation={navigation} />
     </View>
   );
 };
@@ -27,18 +27,17 @@ const styles = StyleSheet.create({
   title: {
     fontSize: moderateScale(23),
     color: colors.primary,
-    fontFamily: fonts.poppinsBold,
+    fontFamily: fonts.poppinsSemiBold,
     marginBottom: moderateScale(12),
     textAlign: 'center',
     marginTop: '40%',
   },
   subTitle: {
     marginBottom: moderateScale(15),
-    fontFamily: fonts.poppinsMedium,
-    fontSize: moderateScale(14.5),
+    fontFamily: fonts.poppinsMediumItalic,
+    fontSize: moderateScale(13),
     textAlign: 'center',
-    marginTop: moderateScale(-5),
-    color: colors.subText,
+    marginTop: moderateScale(-10),
     lineHeight: moderateScale(20),
   },
 });

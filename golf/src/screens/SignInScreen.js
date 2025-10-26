@@ -25,13 +25,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: moderateScale(30),
     color: colors.primary,
-    fontFamily: fonts.poppinsBold,
+    fontFamily: fonts.poppinsSemiBoldItalic,
     marginTop: moderateScale(15),
     textAlign: 'center',
   },
   subTitle: {
     marginBottom: moderateScale(15),
-    fontFamily: fonts.poppinsMedium,
+    fontFamily: fonts.poppinsMediumItalic,
     fontSize: moderateScale(14),
     textAlign: 'center',
     marginTop: moderateScale(-5),

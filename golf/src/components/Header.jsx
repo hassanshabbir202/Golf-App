@@ -16,7 +16,7 @@ const Header = ({ title, navigation }) => {
           <Icon
             name="arrow-back"
             size={moderateScale(22)}
-            color={colors.primary}
+            color={colors.rgbColor}
           />
         </TouchableOpacity>
 

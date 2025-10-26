@@ -29,8 +29,7 @@ const styles = StyleSheet.create({
     fontFamily: fonts.poppinsRegular,
   },
   link: {
-    color: colors.secondary,
-    fontFamily: fonts.poppinsMedium,
+    fontFamily: fonts.poppinsRegular,
   },
 });
 

@@ -26,13 +26,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: moderateScale(20),
     color: colors.primary,
-    fontFamily: fonts.poppinsBold,
+    fontFamily: fonts.poppinsSemiBoldItalic,
     marginTop: moderateScale(15),
   },
   subTitle: {
     marginBottom: moderateScale(20),
-    fontFamily: fonts.poppinsMedium,
-    fontSize: moderateScale(12),
+    fontFamily: fonts.poppinsMediumItalic,
+    fontSize: moderateScale(12)
   },
 });
 
