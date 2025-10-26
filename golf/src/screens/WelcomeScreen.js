@@ -16,7 +16,7 @@ import CreateAccountButton from './../components/CreateAccountButton';
 
 const WelcomeScreen = ({ navigation }) => {
   const continueAsGuest = () => {
-    navigation.navigate('DashboardScreen');
+    navigation.navigate('MainTabs');
   };
 
   return (

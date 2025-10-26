@@ -10,7 +10,7 @@ import SignUpScreen from './src/screens/SignUpScreen';
 import SignInScreen from './src/screens/SignInScreen';
 import ResetPasswordScreen from './src/screens/ResetPasswordScreen';
 import EmailVerificationScreen from './src/screens/EmailVerificationScreen';
-import DashboardScreen from './src/screens/DashboardScreen';
+import TabNavigator from './src/navigations/TabNavigator';
 
 const Stack = createNativeStackNavigator();
 
@@ -36,7 +36,7 @@ function App() {
             name="EmailVerificationScreen"
             component={EmailVerificationScreen}
           />
-          <Stack.Screen name="DashboardScreen" component={DashboardScreen} />
+          <Stack.Screen name="MainTabs" component={TabNavigator} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
