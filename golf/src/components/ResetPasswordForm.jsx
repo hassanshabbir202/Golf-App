@@ -7,33 +7,61 @@ import {
   View,
 } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
+import Feather from 'react-native-vector-icons/Feather';
 import colors from '../constants/colors';
 import fonts from '../constants/fonts';
 
 const ResetPasswordForm = () => {
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const renderPasswordInput = (
+    placeholder,
+    value,
+    setValue,
+    visible,
+    setVisible,
+  ) => (
+    <View style={styles.passwordContainer}>
+      <TextInput
+        style={styles.input}
+        placeholder={placeholder}
+        placeholderTextColor={colors.placeHolderColor}
+        secureTextEntry={!visible}
+        value={value}
+        onChangeText={setValue}
+      />
+      <TouchableOpacity
+        onPress={() => setVisible(!visible)}
+        style={styles.eyeIcon}
+      >
+        <Feather
+          name={visible ? 'eye' : 'eye-off'}
+          size={20}
+          color={colors.subText}
+        />
+      </TouchableOpacity>
+    </View>
+  );
 
   return (
     <View style={styles.container}>
-      <View>
-        <TextInput
-          style={styles.input}
-          placeholder="New Password"
-          placeholderTextColor={colors.placeHolderColor}
-          secureTextEntry
-          value={newPassword}
-          onChangeText={setNewPassword}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Confirm Password"
-          placeholderTextColor={colors.placeHolderColor}
-          secureTextEntry
-          value={confirmPassword}
-          onChangeText={setConfirmPassword}
-        />
-      </View>
+      {renderPasswordInput(
+        'New Password',
+        newPassword,
+        setNewPassword,
+        showNewPassword,
+        setShowNewPassword,
+      )}
+      {renderPasswordInput(
+        'Confirm Password',
+        confirmPassword,
+        setConfirmPassword,
+        showConfirmPassword,
+        setShowConfirmPassword,
+      )}
 
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.button}>
@@ -51,17 +79,26 @@ const styles = StyleSheet.create({
     paddingHorizontal: moderateScale(5),
     paddingTop: moderateScale(30),
   },
-  input: {
+  passwordContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
     backgroundColor: colors.inputBackground,
     borderRadius: moderateScale(10),
-    paddingHorizontal: moderateScale(15),
-    paddingVertical: moderateScale(17),
-    color: colors.text,
-    fontSize: moderateScale(14),
     borderWidth: 1,
     borderColor: colors.border,
-    fontFamily: fonts.poppinsRegular,
     marginBottom: moderateScale(15),
+    paddingRight: moderateScale(15),
+  },
+  input: {
+    flex: 1,
+    color: colors.text,
+    fontSize: moderateScale(14),
+    fontFamily: fonts.poppinsRegular,
+    paddingHorizontal: moderateScale(15),
+    paddingVertical: moderateScale(17),
+  },
+  eyeIcon: {
+    paddingHorizontal: moderateScale(5),
   },
   buttonContainer: {
     position: 'absolute',

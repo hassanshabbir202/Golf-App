@@ -21,7 +21,6 @@ const Header = ({ title, navigation }) => {
         </TouchableOpacity>
 
         <Text style={styles.headerText}>{title}</Text>
-
         <View style={styles.rightSpace} />
       </View>
     </View>

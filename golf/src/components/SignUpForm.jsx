@@ -35,7 +35,6 @@ const SignUpForm = ({ navigation }) => {
           value={firstName}
           onChangeText={setFirstName}
         />
-
         <TextInput
           style={styles.input}
           placeholder="Last Name"
@@ -43,7 +42,6 @@ const SignUpForm = ({ navigation }) => {
           value={lastName}
           onChangeText={setLastName}
         />
-
         <TextInput
           style={styles.input}
           placeholder="Email"
@@ -52,7 +50,6 @@ const SignUpForm = ({ navigation }) => {
           value={email}
           onChangeText={setEmail}
         />
-
         <TextInput
           style={styles.input}
           placeholder="Password"
@@ -61,7 +58,6 @@ const SignUpForm = ({ navigation }) => {
           value={password}
           onChangeText={setPassword}
         />
-
         <TextInput
           style={styles.input}
           placeholder="Invite Code"

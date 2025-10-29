@@ -9,6 +9,7 @@ import {
 import { moderateScale } from 'react-native-size-matters';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import CheckBox from '@react-native-community/checkbox';
+import Feather from 'react-native-vector-icons/Feather';
 import colors from '../constants/colors';
 import fonts from '../constants/fonts';
 import AuthFooter from './AuthFooter';
@@ -17,6 +18,7 @@ const SignInForm = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [agree, setAgree] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSignIn = () => {
     console.log({ email, password });
@@ -33,15 +35,26 @@ const SignInForm = ({ navigation }) => {
           value={email}
           onChangeText={setEmail}
         />
-
-        <TextInput
-          style={styles.input}
-          placeholder="Password"
-          placeholderTextColor={colors.placeHolderColor}
-          secureTextEntry
-          value={password}
-          onChangeText={setPassword}
-        />
+        <View style={styles.passwordContainer}>
+          <TextInput
+            style={[styles.input, { flex: 1, marginBottom: 0, borderWidth: 0 }]}
+            placeholder="Password"
+            placeholderTextColor={colors.placeHolderColor}
+            secureTextEntry={!showPassword}
+            value={password}
+            onChangeText={setPassword}
+          />
+          <TouchableOpacity
+            onPress={() => setShowPassword(!showPassword)}
+            style={styles.eyeIcon}
+          >
+            <Feather
+              name={showPassword ? 'eye' : 'eye-off'}
+              size={20}
+              color={colors.subText}
+            />
+          </TouchableOpacity>
+        </View>
 
         <View style={styles.optionsRow}>
           <View style={styles.wrapper}>
@@ -88,6 +101,19 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.border,
     fontFamily: fonts.poppinsRegular,
+  },
+  passwordContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.inputBackground,
+    borderRadius: moderateScale(10),
+    borderWidth: 1,
+    borderColor: colors.border,
+    marginBottom: moderateScale(15),
+    paddingRight: moderateScale(15),
+  },
+  eyeIcon: {
+    paddingHorizontal: moderateScale(5),
   },
   optionsRow: {
     flexDirection: 'row',
