@@ -10,34 +10,28 @@ import { moderateScale } from 'react-native-size-matters';
 import colors from '../constants/colors';
 import fonts from '../constants/fonts';
 
-const ResetPasswordForm = () => {
-  const [newPassword, setNewPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+const ForgotPasswordForm = ({ navigation }) => {
+  const [email, setEmail] = useState('');
 
   return (
     <View style={styles.container}>
       <View>
         <TextInput
           style={styles.input}
-          placeholder="New Password"
+          placeholder="Enter email"
           placeholderTextColor={colors.placeHolderColor}
-          secureTextEntry
-          value={newPassword}
-          onChangeText={setNewPassword}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Confirm Password"
-          placeholderTextColor={colors.placeHolderColor}
-          secureTextEntry
-          value={confirmPassword}
-          onChangeText={setConfirmPassword}
+          keyboardType="email-address"
+          value={email}
+          onChangeText={setEmail}
         />
       </View>
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Reset Password</Text>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('EmailVerificationScreen')}
+        >
+          <Text style={styles.buttonText}>Send Reset Link</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -61,7 +55,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.border,
     fontFamily: fonts.poppinsRegular,
-    marginBottom: moderateScale(15),
   },
   buttonContainer: {
     position: 'absolute',
@@ -85,4 +78,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ResetPasswordForm;
+export default ForgotPasswordForm;

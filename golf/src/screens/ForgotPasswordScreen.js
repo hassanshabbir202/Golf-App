@@ -3,18 +3,17 @@ import { moderateScale } from 'react-native-size-matters';
 import Header from '../components/Header';
 import colors from '../constants/colors';
 import fonts from '../constants/fonts';
-import ResetPasswordForm from './../components/ResetPasswordForm';
+import ForgotPasswordForm from './../components/ForgotPasswordForm';
 
-const ResetPasswordScreen = ({ navigation }) => {
+const ForgotPasswordScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Header title="Reset Password" navigation={navigation} />
-      <Text style={styles.title}>Set a New Password</Text>
+      <Text style={styles.title}>Forgot your password?</Text>
       <Text style={styles.subTitle}>
-        Please enter your new password below. Make sure it’s strong and easy for
-        you to remember.
+        Enter your email and we’ll send instructions to reset your password.
       </Text>
-      <ResetPasswordForm navigation={navigation} />
+      <ForgotPasswordForm navigation={navigation} />
     </View>
   );
 };
@@ -42,4 +41,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ResetPasswordScreen;
+export default ForgotPasswordScreen;

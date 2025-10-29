@@ -55,7 +55,7 @@ const SignInForm = ({ navigation }) => {
 
           <View>
             <TouchableOpacity
-              onPress={() => navigation.navigate('ResetPasswordScreen')}
+              onPress={() => navigation.navigate('ForgotPasswordScreen')}
             >
               <Text style={styles.forgotText}>Forgot Password?</Text>
             </TouchableOpacity>

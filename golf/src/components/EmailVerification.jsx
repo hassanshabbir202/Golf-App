@@ -1,18 +1,20 @@
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet
-} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
 import colors from '../constants/colors';
 import fonts from '../constants/fonts';
 
 const EmailVerification = ({ navigation }) => {
+  const handleVerifyEmail = () => {
+    navigation.navigate('ResetPasswordScreen');
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.buttonWrapper}>
-        <TouchableOpacity style={styles.verifyButton}>
+        <TouchableOpacity
+          style={styles.verifyButton}
+          onPress={handleVerifyEmail}
+        >
           <Text style={styles.verifyText}>Verify Email</Text>
         </TouchableOpacity>
 

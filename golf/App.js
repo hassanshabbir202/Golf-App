@@ -8,9 +8,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import WelcomeScreen from './src/screens/WelcomeScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
 import SignInScreen from './src/screens/SignInScreen';
-import ResetPasswordScreen from './src/screens/ResetPasswordScreen';
 import EmailVerificationScreen from './src/screens/EmailVerificationScreen';
 import TabNavigator from './src/navigations/TabNavigator';
+import ForgotPasswordScreen from './src/screens/ForgotPasswordScreen';
+import ResetPasswordScreen from './src/screens/ResetPasswordScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,12 +30,16 @@ function App() {
           <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
           <Stack.Screen name="SignInScreen" component={SignInScreen} />
           <Stack.Screen
-            name="ResetPasswordScreen"
-            component={ResetPasswordScreen}
+            name="ForgotPasswordScreen"
+            component={ForgotPasswordScreen}
           />
           <Stack.Screen
             name="EmailVerificationScreen"
             component={EmailVerificationScreen}
+          />
+          <Stack.Screen
+            name="ResetPasswordScreen"
+            component={ResetPasswordScreen}
           />
           <Stack.Screen name="MainTabs" component={TabNavigator} />
         </Stack.Navigator>
