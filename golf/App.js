@@ -13,6 +13,7 @@ import EmailVerificationScreen from './src/screens/EmailVerificationScreen';
 import TabNavigator from './src/navigations/TabNavigator';
 import ForgotPasswordScreen from './src/screens/ForgotPasswordScreen';
 import ResetPasswordScreen from './src/screens/ResetPasswordScreen';
+import SplashScreen from './src/screens/SplashScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,9 +25,10 @@ function App() {
       <NavigationContainer>
         <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
         <Stack.Navigator
-          initialRouteName="Welcome"
+          initialRouteName="SplashScreen"
           screenOptions={{ headerShown: false }}
         >
+          <Stack.Screen name="SplashScreen" component={SplashScreen} />
           <Stack.Screen name="Welcome" component={WelcomeScreen} />
           <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
           <Stack.Screen name="SignInScreen" component={SignInScreen} />
@@ -44,6 +46,7 @@ function App() {
           />
           <Stack.Screen name="MainTabs" component={TabNavigator} />
         </Stack.Navigator>
+
         <Toast />
       </NavigationContainer>
     </SafeAreaProvider>
