@@ -12,6 +12,7 @@ import CheckBox from '@react-native-community/checkbox';
 import colors from '../constants/colors';
 import fonts from '../constants/fonts';
 import AuthFooter from './AuthFooter';
+import ValidationMessage from './ValidationMessage';
 
 const SignUpForm = ({ navigation }) => {
   const [firstName, setFirstName] = useState('');
@@ -20,50 +21,138 @@ const SignUpForm = ({ navigation }) => {
   const [password, setPassword] = useState('');
   const [inviteCode, setInviteCode] = useState('');
   const [agree, setAgree] = useState(false);
+  const [message, setMessage] = useState('');
+  const [type, setType] = useState('error');
+
+  const validateEmail = email => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
 
   const handleSignUp = () => {
-    console.log({ firstName, lastName, email, password, inviteCode });
+    const trimmedEmail = email.trim();
+
+    if (!firstName.trim()) {
+      setMessage('Enter your first name');
+      setType('error');
+      return;
+    }
+
+    if (!lastName.trim()) {
+      setMessage('Enter your last name');
+      setType('error');
+      return;
+    }
+
+    if (!trimmedEmail) {
+      setMessage('Enter your email');
+      setType('error');
+      return;
+    }
+
+    if (!validateEmail(trimmedEmail)) {
+      setMessage('Invalid email address');
+      setType('error');
+      return;
+    }
+
+    if (password.length == 0) {
+      setMessage('Please enter your password');
+      setType('error');
+      return;
+    }
+
+    if (password.length < 8) {
+      setMessage('Password at least 8 characters');
+      setType('error');
+      return;
+    }
+
+    if (!agree) {
+      setMessage('Accept the Terms & Conditions');
+      setType('error');
+      return;
+    }
+
+    // Success
+    setType('success');
+    setMessage('Registration successfully!');
+    setFirstName('');
+    setLastName('');
+    setEmail('');
+    setPassword('');
+    setInviteCode('');
+    setAgree(false);
+
+    setTimeout(() => {
+      navigation.navigate('SignInScreen');
+    }, 1200);
   };
 
   return (
     <KeyboardAwareScrollView enableOnAndroid={true} extraScrollHeight={30}>
       <View>
+        <ValidationMessage
+          message={message}
+          type={type}
+          onHide={() => setMessage('')}
+        />
+
         <TextInput
           style={styles.input}
           placeholder="First Name"
           placeholderTextColor={colors.placeHolderColor}
           value={firstName}
-          onChangeText={setFirstName}
+          onChangeText={text => {
+            setFirstName(text);
+            setMessage('');
+          }}
         />
+
         <TextInput
           style={styles.input}
           placeholder="Last Name"
           placeholderTextColor={colors.placeHolderColor}
           value={lastName}
-          onChangeText={setLastName}
+          onChangeText={text => {
+            setLastName(text);
+            setMessage('');
+          }}
         />
+
         <TextInput
           style={styles.input}
           placeholder="Email"
           placeholderTextColor={colors.placeHolderColor}
           keyboardType="email-address"
           value={email}
-          onChangeText={setEmail}
+          onChangeText={text => {
+            setEmail(text);
+            setMessage('');
+          }}
         />
+
         <TextInput
           style={styles.input}
           placeholder="Password"
           placeholderTextColor={colors.placeHolderColor}
           secureTextEntry
           value={password}
-          onChangeText={setPassword}
+          onChangeText={text => {
+            setPassword(text);
+            setMessage('');
+          }}
         />
+
         <TextInput
           style={styles.input}
           placeholder="Invite Code"
           placeholderTextColor={colors.placeHolderColor}
           value={inviteCode}
-          onChangeText={setInviteCode}
+          onChangeText={text => {
+            setInviteCode(text);
+            setMessage('');
+          }}
         />
 
         <View style={styles.wrapper}>
@@ -105,9 +194,8 @@ const styles = StyleSheet.create({
     fontFamily: fonts.poppinsRegular,
   },
   wrapper: {
-    display: 'flex',
     flexDirection: 'row',
-    alignContent: 'center',
+    alignItems: 'center',
   },
   termsAndCondtion: {
     color: colors.text,

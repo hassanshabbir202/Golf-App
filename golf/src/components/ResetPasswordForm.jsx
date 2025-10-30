@@ -10,12 +10,47 @@ import { moderateScale } from 'react-native-size-matters';
 import Feather from 'react-native-vector-icons/Feather';
 import colors from '../constants/colors';
 import fonts from '../constants/fonts';
+import ValidationMessage from './ValidationMessage';
 
-const ResetPasswordForm = () => {
+const ResetPasswordForm = ({ navigation }) => {
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [message, setMessage] = useState('');
+  const [type, setType] = useState('error');
+
+  const handleReset = () => {
+    const trimmedNewPassword = newPassword.trim();
+    const trimmedConfirmPassword = confirmPassword.trim();
+
+    if (!trimmedNewPassword || !trimmedConfirmPassword) {
+      setMessage('Please fill in both fields');
+      setType('error');
+      return;
+    }
+
+    if (trimmedNewPassword.length < 8) {
+      setMessage('Password at least 8 characters');
+      setType('error');
+      return;
+    }
+
+    if (trimmedNewPassword !== trimmedConfirmPassword) {
+      setMessage('Passwords do not match');
+      setType('error');
+      return;
+    }
+
+    setType('success');
+    setMessage('Password reset successfully');
+    setNewPassword('');
+    setConfirmPassword('');
+
+    setTimeout(() => {
+      navigation.navigate('SignInScreen');
+    }, 1200);
+  };
 
   const renderPasswordInput = (
     placeholder,
@@ -26,7 +61,7 @@ const ResetPasswordForm = () => {
   ) => (
     <View style={styles.passwordContainer}>
       <TextInput
-        style={styles.input}
+        style={[styles.input, { flex: 1, marginBottom: 0, borderWidth: 0 }]}
         placeholder={placeholder}
         placeholderTextColor={colors.placeHolderColor}
         secureTextEntry={!visible}
@@ -48,6 +83,12 @@ const ResetPasswordForm = () => {
 
   return (
     <View style={styles.container}>
+      <ValidationMessage
+        message={message}
+        type={type}
+        onHide={() => setMessage('')}
+      />
+
       {renderPasswordInput(
         'New Password',
         newPassword,
@@ -64,7 +105,7 @@ const ResetPasswordForm = () => {
       )}
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={handleReset}>
           <Text style={styles.buttonText}>Reset Password</Text>
         </TouchableOpacity>
       </View>

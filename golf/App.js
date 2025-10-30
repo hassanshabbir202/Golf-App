@@ -3,6 +3,7 @@ import { StatusBar, useColorScheme } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Toast from 'react-native-toast-message';
 
 // Import Screens
 import WelcomeScreen from './src/screens/WelcomeScreen';
@@ -43,6 +44,7 @@ function App() {
           />
           <Stack.Screen name="MainTabs" component={TabNavigator} />
         </Stack.Navigator>
+        <Toast />
       </NavigationContainer>
     </SafeAreaProvider>
   );

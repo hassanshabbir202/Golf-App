@@ -9,28 +9,60 @@ import {
 import { moderateScale } from 'react-native-size-matters';
 import colors from '../constants/colors';
 import fonts from '../constants/fonts';
+import ValidationMessage from './ValidationMessage';
 
 const ForgotPasswordForm = ({ navigation }) => {
   const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [type, setType] = useState('error');
+
+  const handleSendResetLink = () => {
+    const trimmedEmail = email.trim();
+
+    if (!trimmedEmail) {
+      setMessage('Enter your email');
+      setType('error');
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(trimmedEmail)) {
+      setMessage('Invalid email address');
+      setType('error');
+      return;
+    }
+
+    setType('success');
+    setEmail('');
+    setMessage('Reset link sent successfully');
+
+    setTimeout(() => {
+      navigation.navigate('EmailVerificationScreen');
+    }, 1200);
+  };
 
   return (
     <View style={styles.container}>
-      <View>
-        <TextInput
-          style={styles.input}
-          placeholder="Enter email"
-          placeholderTextColor={colors.placeHolderColor}
-          keyboardType="email-address"
-          value={email}
-          onChangeText={setEmail}
-        />
-      </View>
+      <ValidationMessage
+        message={message}
+        type={type}
+        onHide={() => setMessage('')}
+      />
+
+      <TextInput
+        style={styles.input}
+        placeholder="Enter email"
+        placeholderTextColor={colors.placeHolderColor}
+        keyboardType="email-address"
+        value={email}
+        onChangeText={text => {
+          setEmail(text);
+          setMessage('');
+        }}
+      />
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate('EmailVerificationScreen')}
-        >
+        <TouchableOpacity style={styles.button} onPress={handleSendResetLink}>
           <Text style={styles.buttonText}>Send Reset Link</Text>
         </TouchableOpacity>
       </View>
