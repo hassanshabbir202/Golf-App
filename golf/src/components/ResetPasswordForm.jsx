@@ -29,13 +29,11 @@ const ResetPasswordForm = ({ navigation }) => {
       setType('error');
       return;
     }
-
     if (trimmedNewPassword.length < 8) {
-      setMessage('Password at least 8 characters');
+      setMessage('Password must be at least 8 characters');
       setType('error');
       return;
     }
-
     if (trimmedNewPassword !== trimmedConfirmPassword) {
       setMessage('Passwords do not match');
       setType('error');
@@ -43,13 +41,11 @@ const ResetPasswordForm = ({ navigation }) => {
     }
 
     setType('success');
-    setMessage('Password reset successfully');
+    setMessage('Password reset successfully!');
     setNewPassword('');
     setConfirmPassword('');
 
-    setTimeout(() => {
-      navigation.navigate('SignInScreen');
-    }, 1200);
+    setTimeout(() => navigation.navigate('SignInScreen'), 1200);
   };
 
   const renderPasswordInput = (
@@ -138,9 +134,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: moderateScale(15),
     paddingVertical: moderateScale(17),
   },
-  eyeIcon: {
-    paddingHorizontal: moderateScale(5),
-  },
+  eyeIcon: { paddingHorizontal: moderateScale(5) },
   buttonContainer: {
     position: 'absolute',
     bottom: moderateScale(30),

@@ -1,10 +1,11 @@
+import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
 import colors from '../constants/colors';
 import fonts from '../constants/fonts';
 
 const EmailVerification = ({ navigation }) => {
-  const handleVerifyEmail = () => {
+  const handleButtonPress = () => {
     navigation.navigate('ResetPasswordScreen');
   };
 
@@ -13,7 +14,7 @@ const EmailVerification = ({ navigation }) => {
       <View style={styles.buttonWrapper}>
         <TouchableOpacity
           style={styles.verifyButton}
-          onPress={handleVerifyEmail}
+          onPress={handleButtonPress}
         >
           <Text style={styles.verifyText}>Verify Email</Text>
         </TouchableOpacity>

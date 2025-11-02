@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   StyleSheet,
   TextInput,
@@ -10,10 +10,12 @@ import { moderateScale } from 'react-native-size-matters';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import CheckBox from '@react-native-community/checkbox';
 import Feather from 'react-native-vector-icons/Feather';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import colors from '../constants/colors';
 import fonts from '../constants/fonts';
 import AuthFooter from './AuthFooter';
 import ValidationMessage from './ValidationMessage';
+import apiConfig from '../constants/apiConfig';
 
 const SignInForm = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -22,8 +24,9 @@ const SignInForm = ({ navigation }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [message, setMessage] = useState('');
   const [type, setType] = useState('error');
+  const [loading, setLoading] = useState(false);
 
-  const handleSignIn = () => {
+  const handleSignIn = async () => {
     const trimmedEmail = email.trim();
     const trimmedPassword = password.trim();
 
@@ -52,15 +55,57 @@ const SignInForm = ({ navigation }) => {
       return;
     }
 
-    setType('success');
-    setMessage('Login successful');
-    setEmail('');
-    setPassword('');
+    try {
+      setLoading(true);
+      const response = await fetch(apiConfig.LOGIN, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: trimmedEmail,
+          password: trimmedPassword,
+        }),
+      });
 
-    setTimeout(() => {
-      navigation.navigate('MainTabs');
-    }, 1200);
+      const data = await response.json();
+      setLoading(false);
+
+      if (!response.ok) {
+        return showMessage(data.message || 'Login failed');
+      }
+
+      setType('success');
+      setMessage('Login successful');
+      await AsyncStorage.setItem('userToken', data.token || 'true');
+      setEmail('');
+      setPassword('');
+
+      setTimeout(() => {
+        navigation.navigate('MainTabs');
+      }, 1200);
+    } catch (error) {
+      setLoading(false);
+      console.error(error);
+      showMessage('Network error. Please try again.');
+    }
   };
+
+  useEffect(() => {
+    const checkLogin = async () => {
+      try {
+        const token = await AsyncStorage.getItem('userToken');
+        if (token) {
+          navigation.reset({
+            index: 0,
+            routes: [{ name: 'MainTabs' }],
+          });
+        }
+      } catch (error) {
+        console.error('Error checking login:', error);
+      }
+    };
+
+    checkLogin();
+  }, []);
 
   return (
     <KeyboardAwareScrollView enableOnAndroid={true} extraScrollHeight={30}>
@@ -118,8 +163,13 @@ const SignInForm = ({ navigation }) => {
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity style={styles.button} onPress={handleSignIn}>
-          <Text style={styles.buttonText}>Login</Text>
+        <TouchableOpacity
+          style={[styles.button, loading && { opacity: 0.6 }]}
+          onPress={!loading ? handleSignIn : null}
+        >
+          <Text style={styles.buttonText}>
+            {loading ? 'Please wait...' : 'Login'}
+          </Text>
         </TouchableOpacity>
 
         <AuthFooter

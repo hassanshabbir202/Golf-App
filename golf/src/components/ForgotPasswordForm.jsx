@@ -15,6 +15,7 @@ const ForgotPasswordForm = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [type, setType] = useState('error');
+  const [loading, setLoading] = useState(false);
 
   const handleSendResetLink = () => {
     const trimmedEmail = email.trim();
@@ -33,8 +34,8 @@ const ForgotPasswordForm = ({ navigation }) => {
     }
 
     setType('success');
-    setEmail('');
     setMessage('Reset link sent successfully');
+    setEmail('');
 
     setTimeout(() => {
       navigation.navigate('EmailVerificationScreen');
@@ -62,8 +63,13 @@ const ForgotPasswordForm = ({ navigation }) => {
       />
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={handleSendResetLink}>
-          <Text style={styles.buttonText}>Send Reset Link</Text>
+        <TouchableOpacity
+          style={[styles.button, loading && { opacity: 0.6 }]}
+          onPress={!loading ? handleSendResetLink : null}
+        >
+          <Text style={styles.buttonText}>
+            {loading ? 'Please wait...' : 'Send Reset Link'}
+          </Text>
         </TouchableOpacity>
       </View>
     </View>

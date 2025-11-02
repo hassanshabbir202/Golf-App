@@ -77,7 +77,7 @@ const ValidationMessage = ({ message, type = 'error', onHide }) => {
 const styles = StyleSheet.create({
   container: {
     position: 'absolute',
-    top: '90%',
+    top: '88%',
     alignSelf: 'center',
     flexDirection: 'row',
     alignItems: 'center',
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 3,
     elevation: 5,
-    zIndex:2
+    zIndex: 2,
   },
   icon: {
     marginRight: moderateScale(6),

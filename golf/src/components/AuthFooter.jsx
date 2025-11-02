@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: moderateScale(20),
+    zIndex: 1,
   },
   footerText: {
     color: colors.subText,

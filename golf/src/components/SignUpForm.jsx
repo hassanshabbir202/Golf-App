@@ -13,6 +13,7 @@ import colors from '../constants/colors';
 import fonts from '../constants/fonts';
 import AuthFooter from './AuthFooter';
 import ValidationMessage from './ValidationMessage';
+import apiConfig from '../constants/apiConfig';
 
 const SignUpForm = ({ navigation }) => {
   const [firstName, setFirstName] = useState('');
@@ -23,70 +24,66 @@ const SignUpForm = ({ navigation }) => {
   const [agree, setAgree] = useState(false);
   const [message, setMessage] = useState('');
   const [type, setType] = useState('error');
+  const [loading, setLoading] = useState(false);
 
-  const validateEmail = email => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
-  };
+  const validateEmail = email => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  const handleSignUp = () => {
+  const handleSignUp = async () => {
     const trimmedEmail = email.trim();
 
-    if (!firstName.trim()) {
-      setMessage('Enter your first name');
-      setType('error');
-      return;
+    if (!firstName.trim()) return showMessage('Enter your first name');
+    if (!lastName.trim()) return showMessage('Enter your last name');
+    if (!trimmedEmail) return showMessage('Enter your email');
+    if (!validateEmail(trimmedEmail))
+      return showMessage('Invalid email address');
+    if (password.length === 0) return showMessage('Please enter your password');
+    if (password.length < 8)
+      return showMessage('Password must be at least 8 characters');
+    if (!agree) return showMessage('Accept the Terms & Conditions');
+
+    try {
+      setLoading(true);
+      const response = await fetch(apiConfig.SIGNUP, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email: trimmedEmail,
+          password,
+          inviteCode: inviteCode.trim() || '',
+        }),
+      });
+
+      const data = await response.json();
+      setLoading(false);
+
+      if (!response.ok) {
+        return showMessage(data.message || 'Signup failed');
+      }
+
+      setType('success');
+      setMessage('Registration successful!');
+      setFirstName('');
+      setLastName('');
+      setEmail('');
+      setPassword('');
+      setInviteCode('');
+      setAgree(false);
+
+      setTimeout(() => {
+        navigation.navigate('SignInScreen');
+      }, 1200);
+    } catch (error) {
+      setLoading(false);
+      console.error(error);
+      showMessage('Network error. Please try again.');
     }
+  };
 
-    if (!lastName.trim()) {
-      setMessage('Enter your last name');
-      setType('error');
-      return;
-    }
-
-    if (!trimmedEmail) {
-      setMessage('Enter your email');
-      setType('error');
-      return;
-    }
-
-    if (!validateEmail(trimmedEmail)) {
-      setMessage('Invalid email address');
-      setType('error');
-      return;
-    }
-
-    if (password.length == 0) {
-      setMessage('Please enter your password');
-      setType('error');
-      return;
-    }
-
-    if (password.length < 8) {
-      setMessage('Password at least 8 characters');
-      setType('error');
-      return;
-    }
-
-    if (!agree) {
-      setMessage('Accept the Terms & Conditions');
-      setType('error');
-      return;
-    }
-
-    // Success
-    setType('success');
-    setMessage('Registration successfully!');
-    setFirstName('');
-    setLastName('');
-    setEmail('');
-    setPassword('');
-    setInviteCode('');
-    setAgree(false);
-
-    setTimeout(() => {
-      navigation.navigate('SignInScreen');
-    }, 1200);
+  const showMessage = msg => {
+    setMessage(msg);
+    setType('error');
   };
 
   return (
@@ -146,7 +143,7 @@ const SignUpForm = ({ navigation }) => {
 
         <TextInput
           style={styles.input}
-          placeholder="Invite Code"
+          placeholder="Invite Code (Optional)"
           placeholderTextColor={colors.placeHolderColor}
           value={inviteCode}
           onChangeText={text => {
@@ -166,8 +163,13 @@ const SignUpForm = ({ navigation }) => {
           </Text>
         </View>
 
-        <TouchableOpacity style={styles.button} onPress={handleSignUp}>
-          <Text style={styles.buttonText}>Sign Up</Text>
+        <TouchableOpacity
+          style={[styles.button, loading && { opacity: 0.6 }]}
+          onPress={!loading ? handleSignUp : null}
+        >
+          <Text style={styles.buttonText}>
+            {loading ? 'Please wait...' : 'Sign Up'}
+          </Text>
         </TouchableOpacity>
 
         <AuthFooter
