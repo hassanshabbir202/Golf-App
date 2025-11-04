@@ -44,13 +44,13 @@ const SignInForm = ({ navigation }) => {
     }
 
     if (trimmedPassword.length < 8) {
-      setMessage('Password at least 8 characters');
+      setMessage('Password must be at least 8 characters');
       setType('error');
       return;
     }
 
     if (!agree) {
-      setMessage('Accept Remember Me to continue');
+      setMessage('Please accept Remember Me to continue');
       setType('error');
       return;
     }
@@ -70,9 +70,13 @@ const SignInForm = ({ navigation }) => {
       setLoading(false);
 
       if (!response.ok) {
-        return showMessage(data.message || 'Login failed');
+        // ✅ Always show one clear message for invalid credentials
+        setType('error');
+        setMessage('Invalid credentials. Please try again.');
+        return;
       }
 
+      // ✅ Success case
       setType('success');
       setMessage('Login successful');
       await AsyncStorage.setItem('userToken', data.token || 'true');
@@ -83,9 +87,10 @@ const SignInForm = ({ navigation }) => {
         navigation.navigate('MainTabs');
       }, 1200);
     } catch (error) {
-      setLoading(false);
       console.error(error);
-      showMessage('Network error. Please try again.');
+      setLoading(false);
+      setType('error');
+      setMessage('Network error. Please check your connection and try again.');
     }
   };
 
