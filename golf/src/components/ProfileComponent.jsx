@@ -36,7 +36,7 @@ const ProfileComponent = () => {
       setTimeout(() => {
         navigation.reset({
           index: 0,
-          routes: [{ name: 'Welcome' }], 
+          routes: [{ name: 'Welcome' }],
         });
       }, 1000);
     } catch (error) {

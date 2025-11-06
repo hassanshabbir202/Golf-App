@@ -1,9 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native';
+import DashboardComponent from './../components/DashboardComponent';
+import { moderateScale } from 'react-native-size-matters';
 
 const DashboardScreen = () => {
   return (
     <View style={styles.container}>
-      <Text>Dashboard Screen</Text>
+      <DashboardComponent />
     </View>
   );
 };
@@ -11,9 +13,6 @@ const DashboardScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 });
 

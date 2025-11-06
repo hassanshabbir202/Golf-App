@@ -11,6 +11,7 @@ const colors = {
   createAccountBtn: '#a3a3809c',
   errorIcon: '#ff4d4d',
   successIcon: '#28a745',
+  red: 'red'
 };
 
 export default colors;

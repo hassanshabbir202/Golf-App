@@ -1,4 +1,4 @@
-const BASE_URL = 'http://192.168.0.105:5000/api/auth';
+const BASE_URL = 'http://192.168.0.197:5000/api/auth';
 
 export default {
   BASE_URL,
