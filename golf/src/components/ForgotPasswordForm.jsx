@@ -34,9 +34,8 @@ const ForgotPasswordForm = ({ navigation }) => {
     }
 
     setType('success');
-    setMessage('Reset link sent successfully');
+    setMessage('Reset link Sent Successfully');
     setEmail('');
-
     setTimeout(() => {
       navigation.navigate('EmailVerificationScreen');
     }, 1200);
@@ -93,6 +92,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.border,
     fontFamily: fonts.poppinsRegular,
+    marginBottom: moderateScale(10),
   },
   buttonContainer: {
     position: 'absolute',

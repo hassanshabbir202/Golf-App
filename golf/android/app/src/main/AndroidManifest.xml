@@ -20,15 +20,14 @@
             android:windowSoftInputMode="adjustResize"
             android:exported="true">
 
-            <!-- Universal Link / HTTPS Deep Link Intent Filter -->
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
                     android:scheme="https"
-                    android:host="999f5e18a524.ngrok-free.app"
-                    android:pathPrefix="/reset-password" />
+                    android:host="golf-app-backend-production.up.railway.app"
+                    android:pathPrefix="/api/auth/reset-password" />
             </intent-filter>
 
             <!-- Launcher Intent Filter -->

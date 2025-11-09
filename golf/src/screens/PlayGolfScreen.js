@@ -1,20 +1,12 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View } from 'react-native';
+import PlayGolfComponent from './../components/PlayGolfComponent';
 
 const PlayGolfScreen = () => {
   return (
-    <View style={styles.container}>
-      <Text>PlayGolf Screen</Text>
+    <View>
+      <PlayGolfComponent />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
 
 export default PlayGolfScreen;

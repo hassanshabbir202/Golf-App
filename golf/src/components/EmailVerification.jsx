@@ -5,20 +5,9 @@ import colors from '../constants/colors';
 import fonts from '../constants/fonts';
 
 const EmailVerification = ({ navigation }) => {
-  const handleButtonPress = () => {
-    navigation.navigate('ResetPasswordScreen');
-  };
-
   return (
     <View style={styles.container}>
       <View style={styles.buttonWrapper}>
-        <TouchableOpacity
-          style={styles.verifyButton}
-          onPress={handleButtonPress}
-        >
-          <Text style={styles.verifyText}>Verify Email</Text>
-        </TouchableOpacity>
-
         <TouchableOpacity
           style={styles.backButton}
           onPress={() => navigation.navigate('SignInScreen')}
@@ -44,29 +33,18 @@ const styles = StyleSheet.create({
     gap: moderateScale(12),
     marginVertical: moderateScale(20),
   },
-  verifyButton: {
-    backgroundColor: colors.primary,
-    paddingVertical: moderateScale(14),
-    borderRadius: moderateScale(10),
-    width: '100%',
-    alignItems: 'center',
-  },
-  verifyText: {
-    color: colors.background,
-    fontFamily: fonts.poppinsMedium,
-    fontSize: moderateScale(15),
-  },
   backButton: {
     paddingVertical: moderateScale(14),
     borderRadius: moderateScale(10),
     width: '100%',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: colors.primary,
+    backgroundColor: colors.primary,
   },
   backText: {
     fontFamily: fonts.poppinsMedium,
     fontSize: moderateScale(15),
+    color:colors.background
   },
 });
 

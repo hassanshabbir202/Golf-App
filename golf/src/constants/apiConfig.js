@@ -1,4 +1,5 @@
-const BASE_URL = 'http://192.168.0.197:5000/api/auth';
+const BASE_URL = 'https://golf-app-backend-production.up.railway.app/api/auth';
+// const BASE_URL = 'https://golf-app-backend-production.up.railway.app/api/auth';
 
 export default {
   BASE_URL,

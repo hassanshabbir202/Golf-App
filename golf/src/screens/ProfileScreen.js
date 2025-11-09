@@ -1,10 +1,10 @@
 import { View } from 'react-native';
-import ProfileComponent from './../components/ProfileComponent';
+import ProfileInfo from './../components/ProfileInfo';
 
-const ProfileScreen = () => {
+const ProfileScreen = ({ navigation }) => {
   return (
     <View>
-      <ProfileComponent />
+      <ProfileInfo navigation={navigation} />
     </View>
   );
 };

@@ -11,7 +11,9 @@ const colors = {
   createAccountBtn: '#a3a3809c',
   errorIcon: '#ff4d4d',
   successIcon: '#28a745',
-  red: 'red'
+  red: '#ff0202ff',
+  moreScreenOpt: '#f3f3f3',
+  bannerOverlay: 'rgba(0,0,0,0.5)',
 };
 
 export default colors;

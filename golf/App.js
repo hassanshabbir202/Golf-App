@@ -17,12 +17,22 @@ import SplashScreen from './src/screens/SplashScreen';
 
 const Stack = createNativeStackNavigator();
 
+// ✅ Deep linking configuration
+const linking = {
+  prefixes: ['https://golf-app-backend-production.up.railway.app'],
+  config: {
+    screens: {
+      ResetPasswordScreen: 'api/auth/reset-password/:token',
+    },
+  },
+};
+
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
     <SafeAreaProvider>
-      <NavigationContainer>
+      <NavigationContainer linking={linking}>
         <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
         <Stack.Navigator
           initialRouteName="SplashScreen"

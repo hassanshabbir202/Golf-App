@@ -6,7 +6,6 @@ import {
   ImageBackground,
   StyleSheet,
   TouchableOpacity,
-  Alert,
 } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
 import SignInWithGoogleButton from '../components/SignInWithGoogleButton';

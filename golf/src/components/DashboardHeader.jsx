@@ -4,23 +4,30 @@ import { moderateScale } from 'react-native-size-matters';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import fonts from '../constants/fonts';
 import colors from '../constants/colors';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const DashboardHeader = () => {
   return (
-    <View style={styles.headerContainer}>
-      <Text style={styles.appName}>FairwayOne</Text>
-      <View style={styles.iconContainer}>
-        <TouchableOpacity style={styles.iconButton}>
-          <Icon name="account-plus-outline" size={26} color={colors.rgbColor} />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.iconButton}>
-          <Icon name="bell-outline" size={26} color={colors.rgbColor} />
-          <View style={styles.notificationBadge}>
-            <Text style={styles.notificationText}>1</Text>
-          </View>
-        </TouchableOpacity>
+    <SafeAreaView edges={['top']}>
+      <View style={styles.headerContainer}>
+        <Text style={styles.appName}>FairwayOne</Text>
+        <View style={styles.iconContainer}>
+          <TouchableOpacity style={styles.iconButton}>
+            <Icon
+              name="account-plus-outline"
+              size={26}
+              color={colors.rgbColor}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.iconButton}>
+            <Icon name="bell-outline" size={26} color={colors.rgbColor} />
+            <View style={styles.notificationBadge}>
+              <Text style={styles.notificationText}>1</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -31,9 +38,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: moderateScale(16),
+    paddingHorizontal: moderateScale(22),
     paddingVertical: moderateScale(12),
-    paddingTop: moderateScale(50),
   },
   appName: {
     fontSize: moderateScale(22),

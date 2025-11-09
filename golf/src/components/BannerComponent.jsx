@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { View, Image, StyleSheet, Dimensions, FlatList } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
+import colors from '../constants/colors';
 
 const images = [
   require('../assets/banner-1.png'),
@@ -52,7 +53,6 @@ const styles = StyleSheet.create({
   bannerContainer: {
     width: width,
     height: moderateScale(180),
-    marginTop: moderateScale(10),
   },
   imageWrapper: {
     width: width,
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     width: '90%',
     height: '90%',
     borderRadius: moderateScale(18),
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    backgroundColor: colors.bannerOverlay,
   },
 });
 

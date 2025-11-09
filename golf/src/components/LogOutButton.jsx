@@ -8,7 +8,7 @@ import colors from '../constants/colors';
 import fonts from '../constants/fonts';
 import ValidationMessage from './ValidationMessage';
 
-const ProfileComponent = () => {
+const LogOutButton = () => {
   const navigation = useNavigation();
   const [message, setMessage] = useState('');
   const [type, setType] = useState('success');
@@ -22,7 +22,6 @@ const ProfileComponent = () => {
       });
 
       const data = await response.json();
-
       await AsyncStorage.removeItem('userToken');
 
       if (response.ok) {
@@ -48,16 +47,18 @@ const ProfileComponent = () => {
 
   return (
     <View style={styles.container}>
-      <ValidationMessage
-        message={message}
-        type={type}
-        onHide={() => setMessage('')}
-      />
-
-      <Text style={styles.title}>Profile Screen</Text>
+      {message ? (
+        <View style={styles.messageContainer}>
+          <ValidationMessage
+            message={message}
+            type={type}
+            onHide={() => setMessage('')}
+          />
+        </View>
+      ) : null}
 
       <TouchableOpacity style={styles.logoutBtn} onPress={handleLogout}>
-        <Text style={styles.logoutText}>Log Out</Text>
+        <Text style={styles.logoutText}>LogOut</Text>
       </TouchableOpacity>
     </View>
   );
@@ -65,20 +66,20 @@ const ProfileComponent = () => {
 
 const styles = StyleSheet.create({
   container: {
-    height: '100%',
-    flexDirection: 'column',
+    flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: colors.background,
   },
-  title: {
-    fontSize: moderateScale(22),
-    marginBottom: moderateScale(20),
-    fontFamily: fonts.poppinsMedium,
+  messageContainer: {
+    position: 'absolute',
+    top: '10%', 
+    left: 0,
+    right: 0,
+    alignItems: 'center',
+    zIndex: 999,
   },
   logoutBtn: {
     backgroundColor: colors.primary,
-    paddingHorizontal: moderateScale(30),
+    width: '100%',
     paddingVertical: moderateScale(12),
     borderRadius: moderateScale(8),
   },
@@ -86,7 +87,8 @@ const styles = StyleSheet.create({
     color: colors.background,
     fontSize: moderateScale(16),
     fontFamily: fonts.poppinsMedium,
+    textAlign: 'center',
   },
 });
 
-export default ProfileComponent;
+export default LogOutButton;

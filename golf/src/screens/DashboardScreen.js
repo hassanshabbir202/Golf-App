@@ -1,6 +1,5 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import DashboardComponent from './../components/DashboardComponent';
-import { moderateScale } from 'react-native-size-matters';
 
 const DashboardScreen = () => {
   return (

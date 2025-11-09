@@ -70,13 +70,11 @@ const SignInForm = ({ navigation }) => {
       setLoading(false);
 
       if (!response.ok) {
-        // ✅ Always show one clear message for invalid credentials
         setType('error');
         setMessage('Invalid credentials. Please try again.');
         return;
       }
 
-      // ✅ Success case
       setType('success');
       setMessage('Login successful');
       await AsyncStorage.setItem('userToken', data.token || 'true');
@@ -90,7 +88,7 @@ const SignInForm = ({ navigation }) => {
       console.error(error);
       setLoading(false);
       setType('error');
-      setMessage('Network error. Please check your connection and try again.');
+      setMessage('Network error. Please try again.');
     }
   };
 

@@ -22,18 +22,19 @@ const DashboardInvitationCard = () => {
 
 const styles = StyleSheet.create({
   cardContainer: {
-    backgroundColor: colors.createAccountBtn,
-    borderRadius: moderateScale(12),
-    padding: moderateScale(16),
+    backgroundColor: colors.background,
+    borderRadius: moderateScale(10),
+    paddingVertical: moderateScale(12),
+    paddingHorizontal: moderateScale(15),
     marginHorizontal: moderateScale(16),
-    marginVertical: moderateScale(10),
-    borderRadius: moderateScale(18),
+    borderWidth:1,
+    borderColor:colors.border
   },
   title: {
     color: colors.rgbColor,
     fontSize: moderateScale(13),
-    fontFamily: fonts.poppinsMediumItalic,
-    marginBottom: moderateScale(14),
+    fontFamily: fonts.poppinsMedium,
+    marginBottom: moderateScale(8),
   },
   buttonRow: {
     flexDirection: 'row',

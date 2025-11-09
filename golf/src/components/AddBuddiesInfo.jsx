@@ -8,7 +8,7 @@ const AddBuddiesInfo = () => {
   return (
     <View style={styles.infoContainer}>
       <View style={styles.infoMain}>
-        <Text style={styles.title}>Play FairwayOne with Friends!</Text>
+        <Text style={styles.title}>Play Golf with Friends!</Text>
         <Text style={styles.subTitle}>
           Find and add buddies. They might have good golf tips or new cources
           for you.
@@ -30,19 +30,20 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     width: '80%',
+    marginTop: moderateScale(15),
   },
   title: {
-    fontSize: moderateScale(18),
-    color: colors.text,
     fontFamily: fonts.poppinsSemiBold,
+    color: colors.rgbColor,
+    fontSize: moderateScale(22),
     textAlign: 'center',
-    marginTop: moderateScale(5),
   },
   subTitle: {
-    fontFamily: fonts.poppinsMedium,
-    fontSize: moderateScale(10),
     textAlign: 'center',
+    fontFamily: fonts.poppinsRegular,
     color: colors.subText,
+    fontSize: moderateScale(12),
+    paddingHorizontal: moderateScale(15),
   },
   addBuddiesBtn: {
     backgroundColor: colors.primary,
