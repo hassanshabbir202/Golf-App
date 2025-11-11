@@ -49,12 +49,6 @@ const SignInForm = ({ navigation }) => {
       return;
     }
 
-    if (!agree) {
-      setMessage('Please accept Remember Me to continue');
-      setType('error');
-      return;
-    }
-
     try {
       setLoading(true);
       const response = await fetch(apiConfig.LOGIN, {
@@ -80,6 +74,7 @@ const SignInForm = ({ navigation }) => {
       await AsyncStorage.setItem('userToken', data.token || 'true');
       setEmail('');
       setPassword('');
+      setAgree(false);
 
       setTimeout(() => {
         navigation.navigate('MainTabs');
