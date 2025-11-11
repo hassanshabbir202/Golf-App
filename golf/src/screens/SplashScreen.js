@@ -8,17 +8,13 @@ const SplashScreen = ({ navigation }) => {
     const checkLoginAndNavigate = async () => {
       try {
         const token = await AsyncStorage.getItem('userToken');
-
-        // Optional: 1.5 sec splash delay
         setTimeout(() => {
           if (token) {
-            // User already logged in → MainTabs
             navigation.reset({
               index: 0,
               routes: [{ name: 'MainTabs' }],
             });
           } else {
-            // Not logged in → Welcome
             navigation.replace('Welcome');
           }
         }, 1500);
