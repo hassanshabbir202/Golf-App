@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   StyleSheet,
   TextInput,
@@ -86,24 +86,6 @@ const SignInForm = ({ navigation }) => {
       setMessage('Network error. Please try again.');
     }
   };
-
-  useEffect(() => {
-    const checkLogin = async () => {
-      try {
-        const token = await AsyncStorage.getItem('userToken');
-        if (token) {
-          navigation.reset({
-            index: 0,
-            routes: [{ name: 'MainTabs' }],
-          });
-        }
-      } catch (error) {
-        console.error('Error checking login:', error);
-      }
-    };
-
-    checkLogin();
-  }, []);
 
   return (
     <KeyboardAwareScrollView enableOnAndroid={true} extraScrollHeight={30}>
