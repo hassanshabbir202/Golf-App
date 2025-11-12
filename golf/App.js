@@ -5,7 +5,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Toast from 'react-native-toast-message';
 
-// Import Screens
 import WelcomeScreen from './src/screens/WelcomeScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
 import SignInScreen from './src/screens/SignInScreen';
@@ -17,7 +16,6 @@ import SplashScreen from './src/screens/SplashScreen';
 
 const Stack = createNativeStackNavigator();
 
-// ✅ Deep linking configuration
 const linking = {
   prefixes: ['https://golf-app-backend-production.up.railway.app'],
   config: {

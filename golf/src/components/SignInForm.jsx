@@ -77,7 +77,10 @@ const SignInForm = ({ navigation }) => {
       setAgree(false);
 
       setTimeout(() => {
-        navigation.navigate('MainTabs');
+        navigation.reset({
+          index: 0,
+          routes: [{ name: 'MainTabs' }],
+        });
       }, 1200);
     } catch (error) {
       console.error(error);
