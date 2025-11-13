@@ -26,28 +26,23 @@ const WelcomeScreen = ({ navigation }) => {
     >
       <View style={styles.overlay} />
 
-      <View style={styles.logoContainer}>
-        <Image
-          // source={require('../assets/logo.png')}
-          style={styles.logo}
-          resizeMode="contain"
-        />
-      </View>
+      {/* Main Container with space-between */}
+      <View style={styles.mainContainer}>
+        {/* Centered Text */}
+        <View style={styles.centerContainer}>
+          <Text style={styles.title}>Elevate Your Golf.{'\n'}Sign In Now.</Text>
+        </View>
 
-      <View style={styles.textContainer}>
-        <Text style={styles.title}>Elevate Your Golf.{'\n'}Sign In Now.</Text>
-      </View>
-
-      <View style={styles.signInContainer}>
-        <SignInWithGoogleButton navigation={navigation} />
-        <CreateAccountButton navigation={navigation} />
-
-        <View style={styles.continueAsGuestContainer}>
-          <Text style={styles.bottomText}> Want to explore first? </Text>
-
-          <TouchableOpacity onPress={continueAsGuest}>
-            <Text style={styles.signInText}>Continue as Guest</Text>
-          </TouchableOpacity>
+        {/* Bottom Buttons */}
+        <View style={styles.signInContainer}>
+          <SignInWithGoogleButton navigation={navigation} />
+          <CreateAccountButton navigation={navigation} />
+          <View style={styles.continueAsGuestContainer}>
+            <Text style={styles.bottomText}> Want to explore first? </Text>
+            <TouchableOpacity onPress={continueAsGuest}>
+              <Text style={styles.signInText}>Continue as Guest</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     </ImageBackground>
@@ -56,26 +51,22 @@ const WelcomeScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   background: {
-    flex: moderateScale(1),
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: moderateScale(70),
+    flex: 1,
   },
-
   overlay: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: colors.rgbColor,
   },
-  logoContainer: {
-    marginTop: moderateScale(40),
+  mainContainer: {
+    flex: 1,
+    justifyContent: 'space-between',
     alignItems: 'center',
+    paddingVertical: moderateScale(40),
   },
-  logo: {
-    width: moderateScale(150),
-    height: moderateScale(60),
-  },
-  textContainer: {
+  centerContainer: {
+    justifyContent: 'center',
     alignItems: 'center',
+    flex: 1,
   },
   title: {
     color: colors.background,
@@ -89,12 +80,15 @@ const styles = StyleSheet.create({
   },
   continueAsGuestContainer: {
     flexDirection: 'row',
+    justifyContent: 'center',
     alignItems: 'center',
+    paddingBottom: moderateScale(15),
   },
   bottomText: {
     color: colors.background,
     fontSize: moderateScale(13),
     fontFamily: fonts.poppinsMedium,
+    marginRight: moderateScale(5),
   },
   signInText: {
     color: colors.background,

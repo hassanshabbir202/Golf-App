@@ -71,7 +71,10 @@ const SignInForm = ({ navigation }) => {
 
       setType('success');
       setMessage('Login successful');
-      await AsyncStorage.setItem('userToken', data.token || 'true');
+      await AsyncStorage.setItem('userToken', data.user.token || 'true');
+      await AsyncStorage.setItem('userId', data.user.id || 'true');
+
+      console.log('TOKEN : ', data.user.token);
       setEmail('');
       setPassword('');
       setAgree(false);
@@ -167,7 +170,6 @@ const SignInForm = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   input: {
-    backgroundColor: colors.inputBackground,
     borderRadius: moderateScale(10),
     paddingHorizontal: moderateScale(15),
     paddingVertical: moderateScale(17),

@@ -184,7 +184,6 @@ const SignUpForm = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   input: {
-    backgroundColor: colors.inputBackground,
     borderRadius: moderateScale(10),
     paddingHorizontal: moderateScale(15),
     paddingVertical: moderateScale(17),

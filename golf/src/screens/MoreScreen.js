@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
     fontSize: moderateScale(22),
     fontFamily: fonts.poppinsSemiBold,
     color: colors.primary,
+    marginTop: moderateScale(8),
     marginBottom: moderateScale(5),
   },
   optionButton: {

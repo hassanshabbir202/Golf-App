@@ -29,7 +29,6 @@ const MoreScreen = () => {
   return (
     <SafeAreaView style={[styles.safeArea]} edges={['top']}>
       <ScrollView style={styles.container}>
-  
         <View style={styles.section}>
           {menuItems1.map((item, index) => (
             <TouchableOpacity
@@ -81,17 +80,7 @@ const styles = StyleSheet.create({
   safeArea: {
     backgroundColor: colors.screenBackground,
   },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingVertical: moderateScale(15),
-  },
-  headerTitle: {
-    fontSize: moderateScale(18),
-    fontFamily: fonts.poppinsSemiBold,
-    color: colors.text,
-  },
+
   section: {
     backgroundColor: colors.background,
     borderRadius: moderateScale(10),
