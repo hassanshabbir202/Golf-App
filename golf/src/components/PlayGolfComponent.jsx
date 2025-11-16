@@ -19,7 +19,7 @@ import Loader from './Loader';
 import apiConfig from '../constants/apiConfig';
 import styles from '../styles/PlayGolfComponentStyles';
 
-const PlayGolfComponent = () => {
+const PlayGolfComponent = ({ navigation }) => {
   const [locationEnabled, setLocationEnabled] = useState(false);
   const [loadingLocation, setLoadingLocation] = useState(true);
   const [loadingCourses, setLoadingCourses] = useState(false);
@@ -140,6 +140,18 @@ const PlayGolfComponent = () => {
     }
   };
 
+  const handleGolfCourseDetails = () => {
+    navigation.navigate('GolfCourseDetails');
+  };
+
+  const handlePreview = () => {
+    navigation.navigate('PreviewGolf');
+  };
+
+  const handlePlay = () => {
+    navigation.navigate('PlayGolfMain');
+  };
+
   return (
     <SafeAreaView edges={['top']}>
       <View style={styles.container}>
@@ -195,7 +207,11 @@ const PlayGolfComponent = () => {
         ) : (
           <ScrollView>
             {golfCourses.map((course, index) => (
-              <View style={styles.golfCoursesMain} key={index}>
+              <TouchableOpacity
+                style={styles.golfCoursesMain}
+                key={index}
+                onPress={handleGolfCourseDetails}
+              >
                 <ImageBackground
                   source={{
                     uri: 'https://images.pexels.com/photos/2828723/pexels-photo-2828723.jpeg?cs=srgb&dl=pexels-thomasleeward-2828723.jpg&fm=jpg',
@@ -210,17 +226,23 @@ const PlayGolfComponent = () => {
                     <Text style={styles.country}>{course.country}</Text>
 
                     <View style={styles.buttonsRow}>
-                      <TouchableOpacity style={styles.btn1}>
+                      <TouchableOpacity
+                        style={styles.btn1}
+                        onPress={handlePreview}
+                      >
                         <Text style={styles.btnText1}>PREVIEW</Text>
                       </TouchableOpacity>
 
-                      <TouchableOpacity style={styles.btn2}>
+                      <TouchableOpacity
+                        style={styles.btn2}
+                        onPress={handlePlay}
+                      >
                         <Text style={styles.btnText2}>PLAY GOLF</Text>
                       </TouchableOpacity>
                     </View>
                   </View>
                 </ImageBackground>
-              </View>
+              </TouchableOpacity>
             ))}
           </ScrollView>
         )}

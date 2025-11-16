@@ -6,7 +6,6 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: moderateScale(22),
-    paddingVertical: moderateScale(12),
     height: '100%',
   },
   appName: {

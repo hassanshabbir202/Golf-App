@@ -1,10 +1,10 @@
 import { View } from 'react-native';
 import PlayGolfComponent from './../components/PlayGolfComponent';
 
-const PlayGolfScreen = () => {
+const PlayGolfScreen = ({ navigation }) => {
   return (
     <View>
-      <PlayGolfComponent />
+      <PlayGolfComponent navigation={navigation} />
     </View>
   );
 };

@@ -13,6 +13,9 @@ import TabNavigator from './src/navigations/TabNavigator';
 import ForgotPasswordScreen from './src/screens/ForgotPasswordScreen';
 import ResetPasswordScreen from './src/screens/ResetPasswordScreen';
 import SplashScreen from './src/screens/SplashScreen';
+import GolfCourseDetailsScreen from './src/screens/GolfCourseDetailsScreen';
+import PlayGolfMainScreen from './src/screens/PlayGolfMainScreen';
+import PreviewGolfScreen from './src/screens/PreviewGolfScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -52,6 +55,12 @@ function App() {
             name="ResetPasswordScreen"
             component={ResetPasswordScreen}
           />
+          <Stack.Screen
+            name="GolfCourseDetails"
+            component={GolfCourseDetailsScreen}
+          />
+          <Stack.Screen name="PlayGolfMain" component={PlayGolfMainScreen} />
+          <Stack.Screen name="PreviewGolf" component={PreviewGolfScreen} />
           <Stack.Screen name="MainTabs" component={TabNavigator} />
         </Stack.Navigator>
 
