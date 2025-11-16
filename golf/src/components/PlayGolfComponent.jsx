@@ -198,7 +198,7 @@ const PlayGolfComponent = () => {
               <View style={styles.golfCoursesMain} key={index}>
                 <ImageBackground
                   source={{
-                    uri: 'https://wallpapers.com/images/hd/mountain-view-golf-course-desktop-2hfjwmg2gxtj2cvw.jpg',
+                    uri: 'https://images.pexels.com/photos/2828723/pexels-photo-2828723.jpeg?cs=srgb&dl=pexels-thomasleeward-2828723.jpg&fm=jpg',
                   }}
                   style={styles.golfMainBgImage}
                   imageStyle={{ borderRadius: 12 }}

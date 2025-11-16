@@ -10,5 +10,5 @@ export default {
   RESET_PASSWORD: `${BASE_URL}/api/auth/reset-password`,
   PLAYER_PROFILE: `${BASE_URL}/api/user/profile`,
   EDIT_PLAYER_PROFILE: `${BASE_URL}/api/user/profile`,
-  FETCH_GOLF_COURSES: `${BASE_URL}/api/golfCourses/nearby`
+  FETCH_GOLF_COURSES: `${BASE_URL}/api/golfCourses/nearby`,
 };
