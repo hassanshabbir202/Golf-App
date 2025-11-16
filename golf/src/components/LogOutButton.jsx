@@ -1,12 +1,10 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import apiConfig from '../constants/apiConfig';
-import { moderateScale } from 'react-native-size-matters';
-import colors from '../constants/colors';
-import fonts from '../constants/fonts';
 import ValidationMessage from './ValidationMessage';
+import styles from '../styles/LogOutButtonStyles';
 
 const LogOutButton = () => {
   const navigation = useNavigation();
@@ -63,32 +61,5 @@ const LogOutButton = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
-  messageContainer: {
-    position: 'absolute',
-    top: '10%', 
-    left: 0,
-    right: 0,
-    alignItems: 'center',
-    zIndex: 999,
-  },
-  logoutBtn: {
-    backgroundColor: colors.primary,
-    width: '100%',
-    paddingVertical: moderateScale(12),
-    borderRadius: moderateScale(8),
-  },
-  logoutText: {
-    color: colors.background,
-    fontSize: moderateScale(16),
-    fontFamily: fonts.poppinsMedium,
-    textAlign: 'center',
-  },
-});
 
 export default LogOutButton;

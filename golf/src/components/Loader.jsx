@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, ActivityIndicator } from 'react-native';
 import colors from '../constants/colors';
+import styles from '../styles/LoaderStyles';
 
 const Loader = () => {
   return (
@@ -9,13 +10,5 @@ const Loader = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    height: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
 
 export default Loader;

@@ -1,17 +1,11 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  ScrollView,
-} from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
-import { moderateScale } from 'react-native-size-matters';
 import colors from '../constants/colors';
-import fonts from '../constants/fonts';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import LogOutButton from './LogOutButton';
+import styles from '../styles/ProfileSettingsStyles';
+
 const MoreScreen = () => {
   const menuItems1 = [
     { title: 'Profile Settings' },
@@ -75,40 +69,3 @@ const MoreScreen = () => {
 };
 
 export default MoreScreen;
-
-const styles = StyleSheet.create({
-  safeArea: {
-    backgroundColor: colors.screenBackground,
-  },
-
-  section: {
-    backgroundColor: colors.background,
-    borderRadius: moderateScale(10),
-    marginBottom: moderateScale(15),
-    overflow: 'hidden',
-  },
-  item: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: moderateScale(14),
-    paddingHorizontal: moderateScale(15),
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-  },
-  lastItem: {
-    borderBottomWidth: 0,
-  },
-  itemText: {
-    fontSize: moderateScale(14),
-    fontFamily: fonts.poppinsMedium,
-    color: colors.text,
-  },
-  supportText: {
-    fontSize: moderateScale(12),
-    fontFamily: fonts.poppinsMedium,
-    color: colors.subText,
-    marginBottom: moderateScale(6),
-    marginLeft: moderateScale(5),
-  },
-});

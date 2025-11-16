@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '../constants/colors';
-import fonts from '../constants/fonts';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import styles from '../styles/HeaderStyles';
 
 const Header = ({ title, navigation }) => {
   return (
@@ -29,23 +29,5 @@ const Header = ({ title, navigation }) => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-  },
-  headerContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginTop:moderateScale(8)
-  },
-  headerText: {
-    fontSize: moderateScale(18),
-    fontFamily: fonts.poppinsSemiBold,
-    textAlign: 'center',
-    flex: 1,
-  },
-});
 
 export default Header;

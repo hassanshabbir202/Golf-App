@@ -1,8 +1,7 @@
 import React from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { Image, View } from 'react-native';
 import appLogo from '../assets/app-logo.png';
-import { moderateScale } from 'react-native-size-matters';
-import colors from '../constants/colors';
+import styles from '../styles/SplashComponentStyles';
 
 const SplashComponent = () => {
   return (
@@ -11,19 +10,5 @@ const SplashComponent = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    height: '100%',
-    backgroundColor: colors.primary,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  appLogo: {
-    height: moderateScale(300),
-    width: moderateScale(300),
-  },
-});
 
 export default SplashComponent;
